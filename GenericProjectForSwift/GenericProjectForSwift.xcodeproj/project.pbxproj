@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D08A582A239641D3000AF979 /* LSBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A5829239641D2000AF979 /* LSBaseNavigationViewController.swift */; };
 		D0D89D952392006C00B0E5BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89D942392006C00B0E5BA /* AppDelegate.swift */; };
 		D0D89D9E2392006D00B0E5BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D89D9D2392006D00B0E5BA /* Assets.xcassets */; };
 		D0D89DA9239200DD00B0E5BA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89DA8239200DD00B0E5BA /* RootViewController.swift */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		14FFFC2E1671E361D96085E6 /* Pods-GenericProjectForSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenericProjectForSwift.release.xcconfig"; path = "Target Support Files/Pods-GenericProjectForSwift/Pods-GenericProjectForSwift.release.xcconfig"; sourceTree = "<group>"; };
 		B2B9E033089EDEEB812B2869 /* Pods_GenericProjectForSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GenericProjectForSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D08A5829239641D2000AF979 /* LSBaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBaseNavigationViewController.swift; sourceTree = "<group>"; };
 		D0D89D912392006C00B0E5BA /* GenericProjectForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenericProjectForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D89D942392006C00B0E5BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D89D9D2392006D00B0E5BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 				14FFFC2E1671E361D96085E6 /* Pods-GenericProjectForSwift.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D08A5828239641BC000AF979 /* LSBaseNavigationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D08A5829239641D2000AF979 /* LSBaseNavigationViewController.swift */,
+			);
+			path = LSBaseNavigationViewController;
 			sourceTree = "<group>";
 		};
 		D0D89D882392006C00B0E5BA = {
@@ -84,6 +94,7 @@
 		D0D89DAA239207B300B0E5BA /* Base(基类) */ = {
 			isa = PBXGroup;
 			children = (
+				D08A5828239641BC000AF979 /* LSBaseNavigationViewController */,
 				D0D89DAC239207FD00B0E5BA /* LSBaseTabBarViewController */,
 			);
 			path = "Base(基类)";
@@ -242,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08A582A239641D3000AF979 /* LSBaseNavigationViewController.swift in Sources */,
 				D0D89DAE2392082200B0E5BA /* LSBaseTabBarViewController.swift in Sources */,
 				D0D89D952392006C00B0E5BA /* AppDelegate.swift in Sources */,
 				D0D89DA9239200DD00B0E5BA /* RootViewController.swift in Sources */,
