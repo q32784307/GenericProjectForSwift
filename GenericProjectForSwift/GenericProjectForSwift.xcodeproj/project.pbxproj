@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00E728923AE0E6B001BF3E4 /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E728823AE0E6B001BF3E4 /* TwoViewController.swift */; };
+		D00E728B23AE0E77001BF3E4 /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E728A23AE0E77001BF3E4 /* ThreeViewController.swift */; };
+		D00E728D23AE0E80001BF3E4 /* FourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E728C23AE0E80001BF3E4 /* FourViewController.swift */; };
+		D00E729223AE2A2F001BF3E4 /* GenericProjectForSwift_PrefixHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E729123AE2A2F001BF3E4 /* GenericProjectForSwift_PrefixHeader.swift */; };
+		D00E729423AE2A4F001BF3E4 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E729323AE2A4F001BF3E4 /* AppConfig.swift */; };
+		D00E729623AE3F52001BF3E4 /* LSBaseNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E729523AE3F52001BF3E4 /* LSBaseNavigationView.swift */; };
+		D00E729923AE4AF5001BF3E4 /* LSBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E729823AE4AF5001BF3E4 /* LSBaseViewController.swift */; };
+		D00E729B23AE4F4B001BF3E4 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E729A23AE4F4B001BF3E4 /* OneViewController.swift */; };
 		D08A582A239641D3000AF979 /* LSBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A5829239641D2000AF979 /* LSBaseNavigationViewController.swift */; };
 		D0D89D952392006C00B0E5BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89D942392006C00B0E5BA /* AppDelegate.swift */; };
 		D0D89D9E2392006D00B0E5BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D89D9D2392006D00B0E5BA /* Assets.xcassets */; };
@@ -19,6 +27,14 @@
 /* Begin PBXFileReference section */
 		14FFFC2E1671E361D96085E6 /* Pods-GenericProjectForSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenericProjectForSwift.release.xcconfig"; path = "Target Support Files/Pods-GenericProjectForSwift/Pods-GenericProjectForSwift.release.xcconfig"; sourceTree = "<group>"; };
 		B2B9E033089EDEEB812B2869 /* Pods_GenericProjectForSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GenericProjectForSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00E728823AE0E6B001BF3E4 /* TwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
+		D00E728A23AE0E77001BF3E4 /* ThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
+		D00E728C23AE0E80001BF3E4 /* FourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourViewController.swift; sourceTree = "<group>"; };
+		D00E729123AE2A2F001BF3E4 /* GenericProjectForSwift_PrefixHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericProjectForSwift_PrefixHeader.swift; sourceTree = "<group>"; };
+		D00E729323AE2A4F001BF3E4 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		D00E729523AE3F52001BF3E4 /* LSBaseNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBaseNavigationView.swift; sourceTree = "<group>"; };
+		D00E729823AE4AF5001BF3E4 /* LSBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBaseViewController.swift; sourceTree = "<group>"; };
+		D00E729A23AE4F4B001BF3E4 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		D08A5829239641D2000AF979 /* LSBaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBaseNavigationViewController.swift; sourceTree = "<group>"; };
 		D0D89D912392006C00B0E5BA /* GenericProjectForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenericProjectForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D89D942392006C00B0E5BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,10 +67,147 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D00E727623AE0E49001BF3E4 /* 第二模块 */ = {
+			isa = PBXGroup;
+			children = (
+				D00E727723AE0E49001BF3E4 /* Controller */,
+				D00E727823AE0E49001BF3E4 /* Model */,
+				D00E727923AE0E49001BF3E4 /* View */,
+			);
+			path = "第二模块";
+			sourceTree = "<group>";
+		};
+		D00E727723AE0E49001BF3E4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D00E728823AE0E6B001BF3E4 /* TwoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D00E727823AE0E49001BF3E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D00E727923AE0E49001BF3E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D00E727A23AE0E49001BF3E4 /* 第一模块 */ = {
+			isa = PBXGroup;
+			children = (
+				D00E727B23AE0E49001BF3E4 /* Controller */,
+				D00E727C23AE0E49001BF3E4 /* Model */,
+				D00E727D23AE0E49001BF3E4 /* View */,
+			);
+			path = "第一模块";
+			sourceTree = "<group>";
+		};
+		D00E727B23AE0E49001BF3E4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D00E729A23AE4F4B001BF3E4 /* OneViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D00E727C23AE0E49001BF3E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D00E727D23AE0E49001BF3E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D00E727E23AE0E49001BF3E4 /* 第三模块 */ = {
+			isa = PBXGroup;
+			children = (
+				D00E727F23AE0E49001BF3E4 /* Controller */,
+				D00E728023AE0E49001BF3E4 /* Model */,
+				D00E728123AE0E49001BF3E4 /* View */,
+			);
+			path = "第三模块";
+			sourceTree = "<group>";
+		};
+		D00E727F23AE0E49001BF3E4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D00E728A23AE0E77001BF3E4 /* ThreeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D00E728023AE0E49001BF3E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D00E728123AE0E49001BF3E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D00E728223AE0E49001BF3E4 /* 第四模块 */ = {
+			isa = PBXGroup;
+			children = (
+				D00E728323AE0E49001BF3E4 /* Controller */,
+				D00E728423AE0E49001BF3E4 /* Model */,
+				D00E728523AE0E49001BF3E4 /* View */,
+			);
+			path = "第四模块";
+			sourceTree = "<group>";
+		};
+		D00E728323AE0E49001BF3E4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D00E728C23AE0E80001BF3E4 /* FourViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D00E728423AE0E49001BF3E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D00E728523AE0E49001BF3E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D00E729723AE4AE3001BF3E4 /* LSBaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D00E729823AE4AF5001BF3E4 /* LSBaseViewController.swift */,
+			);
+			path = LSBaseViewController;
+			sourceTree = "<group>";
+		};
 		D08A5828239641BC000AF979 /* LSBaseNavigationViewController */ = {
 			isa = PBXGroup;
 			children = (
 				D08A5829239641D2000AF979 /* LSBaseNavigationViewController.swift */,
+				D00E729523AE3F52001BF3E4 /* LSBaseNavigationView.swift */,
 			);
 			path = LSBaseNavigationViewController;
 			sourceTree = "<group>";
@@ -85,6 +238,8 @@
 				D0D89DB52392109B00B0E5BA /* Resources(资源) */,
 				D0D89D942392006C00B0E5BA /* AppDelegate.swift */,
 				D0D89DA8239200DD00B0E5BA /* RootViewController.swift */,
+				D00E729123AE2A2F001BF3E4 /* GenericProjectForSwift_PrefixHeader.swift */,
+				D00E729323AE2A4F001BF3E4 /* AppConfig.swift */,
 				D0D89D9D2392006D00B0E5BA /* Assets.xcassets */,
 				D0D89DA22392006D00B0E5BA /* Info.plist */,
 			);
@@ -94,6 +249,7 @@
 		D0D89DAA239207B300B0E5BA /* Base(基类) */ = {
 			isa = PBXGroup;
 			children = (
+				D00E729723AE4AE3001BF3E4 /* LSBaseViewController */,
 				D08A5828239641BC000AF979 /* LSBaseNavigationViewController */,
 				D0D89DAC239207FD00B0E5BA /* LSBaseTabBarViewController */,
 			);
@@ -103,6 +259,10 @@
 		D0D89DAB239207B300B0E5BA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D00E727A23AE0E49001BF3E4 /* 第一模块 */,
+				D00E727623AE0E49001BF3E4 /* 第二模块 */,
+				D00E727E23AE0E49001BF3E4 /* 第三模块 */,
+				D00E728223AE0E49001BF3E4 /* 第四模块 */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -253,10 +413,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D00E729223AE2A2F001BF3E4 /* GenericProjectForSwift_PrefixHeader.swift in Sources */,
+				D00E729423AE2A4F001BF3E4 /* AppConfig.swift in Sources */,
+				D00E728B23AE0E77001BF3E4 /* ThreeViewController.swift in Sources */,
+				D00E729B23AE4F4B001BF3E4 /* OneViewController.swift in Sources */,
 				D08A582A239641D3000AF979 /* LSBaseNavigationViewController.swift in Sources */,
+				D00E729623AE3F52001BF3E4 /* LSBaseNavigationView.swift in Sources */,
+				D00E729923AE4AF5001BF3E4 /* LSBaseViewController.swift in Sources */,
 				D0D89DAE2392082200B0E5BA /* LSBaseTabBarViewController.swift in Sources */,
 				D0D89D952392006C00B0E5BA /* AppDelegate.swift in Sources */,
 				D0D89DA9239200DD00B0E5BA /* RootViewController.swift in Sources */,
+				D00E728D23AE0E80001BF3E4 /* FourViewController.swift in Sources */,
+				D00E728923AE0E6B001BF3E4 /* TwoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

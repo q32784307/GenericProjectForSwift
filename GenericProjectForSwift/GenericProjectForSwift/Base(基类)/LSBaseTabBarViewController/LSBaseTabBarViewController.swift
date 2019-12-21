@@ -13,7 +13,6 @@ class LSBaseTabBarViewController: UITabBarController,UITabBarControllerDelegate 
     var lastItem: UITabBarItem!
     var dataArray: Array<Any>!
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         lastItem = self.tabBar.selectedItem
@@ -26,84 +25,50 @@ class LSBaseTabBarViewController: UITabBarController,UITabBarControllerDelegate 
         bgView.backgroundColor = UIColor.white
         self.tabBar.insertSubview(bgView, at: 0)
         self.delegate = self
+
         
         setViewControllers()
     }
     
-    func setViewControllers() -> Void {
-        let path:String = Bundle.main.path(forResource: "TabBarConfigure", ofType: "plist")!
-        let dataArray:[[String:String]] = NSArray.init(contentsOfFile: path) as! [[String : String]]
-        for dataDic in dataArray {
-            print(dataDic["title"] as Any)
-            let vcView = NSClassFromString(dataDic["class"]!) as! String
-            let title = dataDic["title"]
-            let image = dataDic["image"]
-            let selectedImage = dataDic["selectedImage"]
-            
-            
-        }
+    func setViewControllers()  {
+        addChild(setChildViewController(viewController: OneViewController.self, title: "首页", image: "tabbar_home", selectedImage: "tabbar_home_selected"))
+        addChild(setChildViewController(viewController: TwoViewController.self, title: "消息", image: "tabbar_message_center", selectedImage: "tabbar_message_center_selected"))
+        addChild(setChildViewController(viewController: ThreeViewController.self, title: "发现", image: "tabbar_reward", selectedImage: "tabbar_reward_selected"))
+        addChild(setChildViewController(viewController: FourViewController.self, title: "我的", image: "tabbar_profile", selectedImage: "tabbar_profile_selected"))
     }
     
-    func addChild(classVC:String,title:String,image:String,selectedImage:String) {
+    func setChildViewController(viewController: AnyObject.Type,title: String,image: String,selectedImage: String) -> LSBaseNavigationViewController {
+        let vc = UIViewController.init()
+        vc.tabBarItem.title = title
         
+        //未选中状态
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : BlackColor,NSAttributedString.Key.font: SystemFont(FONTSIZE: 10)], for: .normal)
+        vc.tabBarItem.image = ImageNamed(name: image).withRenderingMode(.alwaysOriginal)
+        //选中状态
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : RedColor,NSAttributedString.Key.font: SystemFont(FONTSIZE: 10)], for: .selected)
+        vc.tabBarItem.selectedImage = ImageNamed(name: selectedImage).withRenderingMode(.alwaysOriginal)
+        
+        UITabBar.appearance().backgroundColor = UIColor.white
+        UITabBar.appearance().isTranslucent = false
+
+        let nav = LSBaseNavigationViewController.init(rootViewController: vc)
+        addChild(nav)
+        
+        //改变tabbar 线条颜色
+        let rect = CGRect(x: 0, y: 0, width: ScreenWidth, height: SYRealValue(value: 2 / 2))
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context!.setFillColor(RGBAColor(r: 0.99, 085, 0.92, 1).cgColor)
+        context!.addRect(rect)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        tabBar.shadowImage = img
+        tabBar.backgroundImage = UIImage.init()
+        
+        
+        return nav
     }
     
-//    - (LSBaseNavigationViewController *)setViewController:(Class)class title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage {
-//        UIViewController *vc = [class new];
-//        vc.tabBarItem.title = title;
-//
-//        if (@available(iOS 13.0, *)) {
-//            UITabBarAppearance *appearance = UITabBarAppearance.new;
-//            NSMutableParagraphStyle *par = [[NSMutableParagraphStyle alloc]init];
-//            par.alignment = NSTextAlignmentCenter;
-//            //未选中状态
-//            UITabBarItemStateAppearance *normal = appearance.stackedLayoutAppearance.normal;
-//            if (normal) {
-//                normal.titleTextAttributes = @{NSForegroundColorAttributeName:BlackColor,NSParagraphStyleAttributeName : par};
-//            }
-//            //选中状态
-//            UITabBarItemStateAppearance *selected = appearance.stackedLayoutAppearance.selected;
-//            if (selected) {
-//                selected.titleTextAttributes = @{NSForegroundColorAttributeName:RedColor,NSParagraphStyleAttributeName : par};
-//            }
-//            self.tabBar.standardAppearance = appearance;
-//        }else{
-//            //未选中状态
-//            NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-//            textAttrs[NSForegroundColorAttributeName] = BlackColor;
-//            textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:10];
-//            [vc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
-//            //选中状态
-//            NSMutableDictionary *selectedTextAttrs = [NSMutableDictionary dictionary];
-//            selectedTextAttrs[NSForegroundColorAttributeName] = RedColor;
-//            selectedTextAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:10];
-//            [vc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
-//        }
-//        vc.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//        vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//
-//        //tabbar的背景色
-//        [UITabBar appearance].backgroundColor = RGBAColor(0.98, 0.98, 0.98, 1);
-//        //解决iOS12系统下pop返回时tabbar偏移的问题
-//        [UITabBar appearance].translucent = NO;
-//
-//        LSBaseNavigationViewController *nav = [[LSBaseNavigationViewController alloc] initWithRootViewController:vc];
-//        [self addChildViewController:nav];
-//
-//        //改变tabbar 线条颜色
-//        CGRect rect = CGRectMake(0, 0, ScreenWidth, SYRealValue(2 / 2));
-//        UIGraphicsBeginImageContext(rect.size);
-//        CGContextRef context = UIGraphicsGetCurrentContext();
-//        CGContextSetFillColorWithColor(context,RGBAColor(0.99, 0.85, 0.92 ,1).CGColor);
-//        CGContextFillRect(context, rect);
-//        UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-//        UIGraphicsEndImageContext();
-//        [self.tabBar setShadowImage:img];
-//        [self.tabBar setBackgroundImage:[[UIImage alloc]init]];
-//
-//
-//        return nav;
-//    }
     /*
     // MARK: - Navigation
 
