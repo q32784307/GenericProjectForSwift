@@ -83,29 +83,29 @@ let IOS_VERSION_8_OR_LATER = Double(UIDevice.current.systemVersion)! >= 8.0 ? tr
 let IOS_VERSION_10_OR_LATER = Double(UIDevice.current.systemVersion)! >= 10.0 ? true :false
 
 // 判断iPhone 4/4S
-let iPhone4_4S = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 640, height: 960).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPAD : false)
+let iPhone4_4S = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 640, height: 960).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
 // 判断iPhone 5/5S/5C/SE
-let iPhone5_5SE = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 640, height: 1136).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPAD : false)
+let iPhone5_5SE = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 640, height: 1136).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
 // 判断iPhone 6/6S/7/8
-let iPhone6_6S = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 750, height: 1334).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPAD : false)
+let iPhone6_6S = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 750, height: 1334).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
 // 判断iPhone 6Plus/6SPlus/7P/8P
-let iPhone6Plus_8Plus = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1080, height: 1920).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPAD : false)
+let iPhone6Plus_8Plus = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1080, height: 1920).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
 //判断iPhone X
-let Is_iPhoneX = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1125, height: 2436).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPAD : false)
+let Is_iPhoneX = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1125, height: 2436).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
 //判断iPHone Xr
-let Is_iPhoneXr = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 828, height: 1792).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPAD : false)
+let Is_iPhoneXr = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 828, height: 1792).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
 //判断iPhone Xs
-let Is_iPhoneXs = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1125, height: 2436).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPAD : false)
+let Is_iPhoneXs = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1125, height: 2436).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
 //判断iPhone Xs Max
-let Is_iPhoneXs_Max = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1242, height: 2688).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPAD : false)
+let Is_iPhoneXs_Max = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1242, height: 2688).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
 //判断iPad mini
-let Is_iPad_Mine = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1536, height: 2048).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPHONE : false)
+let Is_iPad_Mine = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1536, height: 2048).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPHONE : false)
 //判断iPad
-let Is_iPad = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1536, height: 2048).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPHONE : false)
+let Is_iPad = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1536, height: 2048).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPHONE : false)
 //判断iPad Pro(10.5寸)
-let Is_iPad_Pro_10_5 = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1668, height: 2224).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPHONE : false)
+let Is_iPad_Pro_10_5 = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1668, height: 2224).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPHONE : false)
 //判断iPad Pro(12.9寸)
-let Is_iPad_Pro_12_9 = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 2048, height: 2732).equalTo((UIScreen.main.currentMode?.size)!) && IS_IPHONE : false)
+let Is_iPad_Pro_12_9 = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 2048, height: 2732).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPHONE : false)
 
 // 主要是用于区分是否是 刘海屏
 //#define LiuHaiPhone \

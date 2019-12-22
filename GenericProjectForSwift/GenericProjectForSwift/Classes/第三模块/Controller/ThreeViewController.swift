@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThreeViewController: UIViewController {
+class ThreeViewController: LSBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

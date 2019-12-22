@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class LSBaseNavigationView: UIView {
     //导航栏
@@ -21,7 +22,10 @@ class LSBaseNavigationView: UIView {
     var leftButton: UIButton!
     //导航栏标题
     var titleLabel: UILabel!
-    
+    //标题文字
+    var titleLabelText: String!
+    //标题文字颜色
+    var titleLabelTextColor: UIColor!
     
     
     override init(frame: CGRect) {
@@ -34,26 +38,26 @@ class LSBaseNavigationView: UIView {
     
     func setNavigationViewAction() {
         //导航栏
-        navView = UIView.init(frame: self.bounds)
+        navView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: CGFloat(NAVIGATION_BAR_HEIGHT)))
         navView.isUserInteractionEnabled = true
         //是否显示
-        if !self.isShowNavigation {
-            navView.isHidden = false
-        }else{
-            navView.isHidden = true
-        }
+//        if !self.isShowNavigation {
+//            navView.isHidden = false
+//        }else{
+//            navView.isHidden = true
+//        }
         //颜色
-        if self.navColor != nil {
+//        if (navColor != nil) {
             navView.backgroundColor = RGBAColor(r: 0.22, 0.22, 0.24, 1)
-        }else{
-            navView.backgroundColor = self.navColor
-        }
-        //背景图片
-        if self.navBackgroundViewImage != nil {
-            navView.layer.contents = UIImage.init(named: "")?.cgImage
-        }else{
-            navView.layer.contents = UIImage.init(named: self.navBackgroundViewImage)?.cgImage
-        }
+//        }else{
+//            navView.backgroundColor = navColor
+//        }
+//        //背景图片
+//        if self.navBackgroundViewImage != nil {
+//            navView.layer.contents = UIImage.init(named: "")?.cgImage
+//        }else{
+//            navView.layer.contents = UIImage.init(named: self.navBackgroundViewImage)?.cgImage
+//        }
         self.addSubview(navView)
         
 //        //左按钮
@@ -62,7 +66,29 @@ class LSBaseNavigationView: UIView {
         //导航栏标题
         titleLabel = UILabel.init()
         //文字
+//        if self.titleLabelText != nil {
+            titleLabel.text = "标题"
+//        } else {
+//            titleLabel.text = self.titleLabelText
+//        }
+        //颜色
+//        if self.titleLabelTextColor != nil {
+            titleLabel.textColor = WhiteColor
+//        } else {
+//            titleLabel.textColor = self.titleLabelTextColor
+//        }
+        titleLabel.textAlignment = NSTextAlignment.center
+        titleLabel.font = BoldSystemFont(FONTSIZE: SYRealValue(value: 32 / 2))
+        navView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(STATUS_BAR_HEIGHT + 2)
+            make.centerX.equalTo(navView)
+            make.size.equalTo(CGSize(width: SYRealValue(value: 300 / 2), height: 40))
+        }
     }
+    
+
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

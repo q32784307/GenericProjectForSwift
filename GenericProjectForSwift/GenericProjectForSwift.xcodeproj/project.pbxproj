@@ -16,6 +16,9 @@
 		D00E729923AE4AF5001BF3E4 /* LSBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E729823AE4AF5001BF3E4 /* LSBaseViewController.swift */; };
 		D00E729B23AE4F4B001BF3E4 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E729A23AE4F4B001BF3E4 /* OneViewController.swift */; };
 		D08A582A239641D3000AF979 /* LSBaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A5829239641D2000AF979 /* LSBaseNavigationViewController.swift */; };
+		D0D79B4F23AF6B8900F9AD74 /* error.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0D79B4E23AF6B8900F9AD74 /* error.wav */; };
+		D0D79B5123AF703600F9AD74 /* UITabBar+LSBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D79B5023AF703600F9AD74 /* UITabBar+LSBadge.swift */; };
+		D0D79B5323AF7BC500F9AD74 /* LSBaseTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D79B5223AF7BC500F9AD74 /* LSBaseTabBarView.swift */; };
 		D0D89D952392006C00B0E5BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89D942392006C00B0E5BA /* AppDelegate.swift */; };
 		D0D89D9E2392006D00B0E5BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D89D9D2392006D00B0E5BA /* Assets.xcassets */; };
 		D0D89DA9239200DD00B0E5BA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89DA8239200DD00B0E5BA /* RootViewController.swift */; };
@@ -36,6 +39,9 @@
 		D00E729823AE4AF5001BF3E4 /* LSBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBaseViewController.swift; sourceTree = "<group>"; };
 		D00E729A23AE4F4B001BF3E4 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		D08A5829239641D2000AF979 /* LSBaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBaseNavigationViewController.swift; sourceTree = "<group>"; };
+		D0D79B4E23AF6B8900F9AD74 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = error.wav; sourceTree = "<group>"; };
+		D0D79B5023AF703600F9AD74 /* UITabBar+LSBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+LSBadge.swift"; sourceTree = "<group>"; };
+		D0D79B5223AF7BC500F9AD74 /* LSBaseTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBaseTabBarView.swift; sourceTree = "<group>"; };
 		D0D89D912392006C00B0E5BA /* GenericProjectForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenericProjectForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D89D942392006C00B0E5BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D89D9D2392006D00B0E5BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -206,8 +212,8 @@
 		D08A5828239641BC000AF979 /* LSBaseNavigationViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D08A5829239641D2000AF979 /* LSBaseNavigationViewController.swift */,
 				D00E729523AE3F52001BF3E4 /* LSBaseNavigationView.swift */,
+				D08A5829239641D2000AF979 /* LSBaseNavigationViewController.swift */,
 			);
 			path = LSBaseNavigationViewController;
 			sourceTree = "<group>";
@@ -270,7 +276,9 @@
 		D0D89DAC239207FD00B0E5BA /* LSBaseTabBarViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D0D79B5223AF7BC500F9AD74 /* LSBaseTabBarView.swift */,
 				D0D89DAD2392082200B0E5BA /* LSBaseTabBarViewController.swift */,
+				D0D79B5023AF703600F9AD74 /* UITabBar+LSBadge.swift */,
 			);
 			path = LSBaseTabBarViewController;
 			sourceTree = "<group>";
@@ -286,6 +294,7 @@
 		D0D89DB6239210B600B0E5BA /* Document(文件) */ = {
 			isa = PBXGroup;
 			children = (
+				D0D79B4E23AF6B8900F9AD74 /* error.wav */,
 				D0D89DB7239210D100B0E5BA /* TabBarConfigure.plist */,
 			);
 			path = "Document(文件)";
@@ -361,6 +370,7 @@
 			files = (
 				D0D89D9E2392006D00B0E5BA /* Assets.xcassets in Resources */,
 				D0D89DB8239210D100B0E5BA /* TabBarConfigure.plist in Resources */,
+				D0D79B4F23AF6B8900F9AD74 /* error.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +425,7 @@
 			files = (
 				D00E729223AE2A2F001BF3E4 /* GenericProjectForSwift_PrefixHeader.swift in Sources */,
 				D00E729423AE2A4F001BF3E4 /* AppConfig.swift in Sources */,
+				D0D79B5323AF7BC500F9AD74 /* LSBaseTabBarView.swift in Sources */,
 				D00E728B23AE0E77001BF3E4 /* ThreeViewController.swift in Sources */,
 				D00E729B23AE4F4B001BF3E4 /* OneViewController.swift in Sources */,
 				D08A582A239641D3000AF979 /* LSBaseNavigationViewController.swift in Sources */,
@@ -423,6 +434,7 @@
 				D0D89DAE2392082200B0E5BA /* LSBaseTabBarViewController.swift in Sources */,
 				D0D89D952392006C00B0E5BA /* AppDelegate.swift in Sources */,
 				D0D89DA9239200DD00B0E5BA /* RootViewController.swift in Sources */,
+				D0D79B5123AF703600F9AD74 /* UITabBar+LSBadge.swift in Sources */,
 				D00E728D23AE0E80001BF3E4 /* FourViewController.swift in Sources */,
 				D00E728923AE0E6B001BF3E4 /* TwoViewController.swift in Sources */,
 			);
@@ -554,7 +566,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76CCWEP8FC;
 				INFOPLIST_FILE = GenericProjectForSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -577,7 +589,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76CCWEP8FC;
 				INFOPLIST_FILE = GenericProjectForSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

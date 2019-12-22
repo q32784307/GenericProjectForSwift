@@ -18,7 +18,7 @@ class OneViewController: LSBaseViewController {
     }
     
     func setNavigation() {
-//        navView.
+        navView.navColor = RedColor
     }
 
     /*
