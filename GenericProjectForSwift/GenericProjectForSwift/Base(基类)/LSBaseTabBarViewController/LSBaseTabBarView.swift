@@ -21,15 +21,15 @@ class LSBaseTabBarView: UITabBar {
         MoreButton = UIButton.init()
         MoreButton.setBackgroundImage(ImageNamed(name: "plus"), for: .normal)
         MoreButton.addTarget(self, action: #selector(MoreAction), for: .touchUpInside)
-//        MoreButton.sizeToFit()
+        MoreButton.size = MoreButton.currentBackgroundImage!.size
         self.addSubview(MoreButton)
     }
     
     override func safeAreaInsetsDidChange() {
         if #available(iOS 11.0, *) {
             super .safeAreaInsetsDidChange()
-            if oldSafeAreaInsets.left != self.safeAreaInsets.left || oldSafeAreaInsets.right != self.safeAreaInsets.right || oldSafeAreaInsets.top != self.safeAreaInsets.top || oldSafeAreaInsets.bottom != self.safeAreaInsets.bottom {
-                oldSafeAreaInsets = self.safeAreaInsets
+            if self.oldSafeAreaInsets.left != self.safeAreaInsets.left || self.oldSafeAreaInsets.right != self.safeAreaInsets.right || self.oldSafeAreaInsets.top != self.safeAreaInsets.top || self.oldSafeAreaInsets.bottom != self.safeAreaInsets.bottom {
+                self.oldSafeAreaInsets = self.safeAreaInsets
                 self.invalidateIntrinsicContentSize()
                 self.superview?.setNeedsLayout()
                 self.superview?.layoutSubviews()
@@ -54,21 +54,34 @@ class LSBaseTabBarView: UITabBar {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        MoreButton.center = CGPoint(x: 10, y: 10)
-//        self.MoreButton.center = CGPointMake(self.width * 0.5, self.height * 0.1);
-//        int index = 0;
-//        for (UIView *view in self.subviews) {
-//            if ([view isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
-//                view.width = self.width / 5;
-//                view.x = view.width * index;
-//                index++;
-//                if (index == 2) {
-//                    index++;
-//                }
-//            }
-//        }
+
+        MoreButton.center = CGPoint(x: self.width * 0.5, y: self.height * 0.1)
+        var index: Int = 0
+        for view in self.subviews {
+            if view.isKind(of: NSClassFromString("UITabBarButton")!) {
+                view.width = self.width / 5
+                view.x = view.width * CGFloat(index)
+                index += 1
+                if index == 2 {
+                    index += 1
+                }
+            }
+        }
     }
+    
+    func hitTestwithEvent(point: CGPoint,event: UIEvent) -> UIView {
+        if self.isHidden == false {
+            let newPoint: CGPoint = self.convert(point, to: self.MoreButton)
+            if self.MoreButton.point(inside: newPoint, with: event) {
+                return self.MoreButton
+            }else{
+                return super.hitTest(point, with: event)!
+            }
+        }else{
+            return super.hitTest(point, with: event)!
+        }
+    }
+
     
     //点击了发布按钮
     @objc func MoreAction() {

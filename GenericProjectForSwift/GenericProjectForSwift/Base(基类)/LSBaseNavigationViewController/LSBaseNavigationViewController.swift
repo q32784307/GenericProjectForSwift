@@ -8,13 +8,23 @@
 
 import UIKit
 
-class LSBaseNavigationViewController: UINavigationController {
+class LSBaseNavigationViewController: UINavigationController,UIGestureRecognizerDelegate,UINavigationControllerDelegate {
+
+    var popDelegate: AnyObject!
+    var interactivePopTransition: UIPercentDrivenInteractiveTransition!
+    var popRecognizer: UIScreenEdgePanGestureRecognizer!
+    var isSystemSlidBack: Bool!//是否开启系统右滑返回
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //默认开启系统右划返回
+        self.interactivePopGestureRecognizer?.isEnabled = true
+        self.interactivePopGestureRecognizer?.delegate = self
     }
+
+
     
 
     /*

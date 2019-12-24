@@ -24,6 +24,9 @@
 		D0D89DA9239200DD00B0E5BA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89DA8239200DD00B0E5BA /* RootViewController.swift */; };
 		D0D89DAE2392082200B0E5BA /* LSBaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89DAD2392082200B0E5BA /* LSBaseTabBarViewController.swift */; };
 		D0D89DB8239210D100B0E5BA /* TabBarConfigure.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0D89DB7239210D100B0E5BA /* TabBarConfigure.plist */; };
+		D0FB657023B1F31F006094FE /* UIView+LSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB656F23B1F31F006094FE /* UIView+LSExtension.swift */; };
+		D0FB657223B20B94006094FE /* LSNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB657123B20B94006094FE /* LSNetworkRequest.swift */; };
+		D0FB657423B21A85006094FE /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB657323B21A85006094FE /* PushViewController.swift */; };
 		E8C78AF001743643998B8764 /* Pods_GenericProjectForSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B9E033089EDEEB812B2869 /* Pods_GenericProjectForSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		D0D89DA8239200DD00B0E5BA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D0D89DAD2392082200B0E5BA /* LSBaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBaseTabBarViewController.swift; sourceTree = "<group>"; };
 		D0D89DB7239210D100B0E5BA /* TabBarConfigure.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TabBarConfigure.plist; sourceTree = "<group>"; };
+		D0FB656F23B1F31F006094FE /* UIView+LSExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LSExtension.swift"; sourceTree = "<group>"; };
+		D0FB657123B20B94006094FE /* LSNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSNetworkRequest.swift; sourceTree = "<group>"; };
+		D0FB657323B21A85006094FE /* PushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
 		F112ED2CB8612D3CC30215A5 /* Pods-GenericProjectForSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenericProjectForSwift.debug.xcconfig"; path = "Target Support Files/Pods-GenericProjectForSwift/Pods-GenericProjectForSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				D00E729A23AE4F4B001BF3E4 /* OneViewController.swift */,
+				D0FB657323B21A85006094FE /* PushViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,7 +293,10 @@
 		D0D89DB52392109B00B0E5BA /* Resources(资源) */ = {
 			isa = PBXGroup;
 			children = (
+				D0FB656A23B1F2E0006094FE /* ThirdParty(第三方) */,
 				D0D89DB6239210B600B0E5BA /* Document(文件) */,
+				D0FB656823B1F2E0006094FE /* Extend(扩展类) */,
+				D0FB656923B1F2E0006094FE /* Tools(工具类) */,
 			);
 			path = "Resources(资源)";
 			sourceTree = "<group>";
@@ -298,6 +308,29 @@
 				D0D89DB7239210D100B0E5BA /* TabBarConfigure.plist */,
 			);
 			path = "Document(文件)";
+			sourceTree = "<group>";
+		};
+		D0FB656823B1F2E0006094FE /* Extend(扩展类) */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB656F23B1F31F006094FE /* UIView+LSExtension.swift */,
+			);
+			path = "Extend(扩展类)";
+			sourceTree = "<group>";
+		};
+		D0FB656923B1F2E0006094FE /* Tools(工具类) */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB657123B20B94006094FE /* LSNetworkRequest.swift */,
+			);
+			path = "Tools(工具类)";
+			sourceTree = "<group>";
+		};
+		D0FB656A23B1F2E0006094FE /* ThirdParty(第三方) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "ThirdParty(第三方)";
 			sourceTree = "<group>";
 		};
 		ED374F1E648466FB47551825 /* Frameworks */ = {
@@ -426,7 +459,10 @@
 				D00E729223AE2A2F001BF3E4 /* GenericProjectForSwift_PrefixHeader.swift in Sources */,
 				D00E729423AE2A4F001BF3E4 /* AppConfig.swift in Sources */,
 				D0D79B5323AF7BC500F9AD74 /* LSBaseTabBarView.swift in Sources */,
+				D0FB657423B21A85006094FE /* PushViewController.swift in Sources */,
+				D0FB657223B20B94006094FE /* LSNetworkRequest.swift in Sources */,
 				D00E728B23AE0E77001BF3E4 /* ThreeViewController.swift in Sources */,
+				D0FB657023B1F31F006094FE /* UIView+LSExtension.swift in Sources */,
 				D00E729B23AE4F4B001BF3E4 /* OneViewController.swift in Sources */,
 				D08A582A239641D3000AF979 /* LSBaseNavigationViewController.swift in Sources */,
 				D00E729623AE3F52001BF3E4 /* LSBaseNavigationView.swift in Sources */,

@@ -30,8 +30,20 @@ class LSBaseTabBarViewController: UITabBarController,UITabBarControllerDelegate 
 
         
         setViewControllers()
+//        setCustomtabbar()
         removeTabarTopLine()
     }
+    
+    //设置自定义中心按钮
+    func setCustomtabbar() {
+        let tabbar = LSBaseTabBarView.init()
+        self.setValue(tabbar, forKey: "tabBar")
+    }
+//    - (void)setCustomtabbar {
+//        LSBaseTabBarView *tabbar = [[LSBaseTabBarView alloc]init];
+//        tabbar.BarButtonDelegate = self;
+//        [self setValue:tabbar forKeyPath:@"tabBar"];
+//    }
     
     func setViewControllers()  {
         let path:String = Bundle.main.path(forResource: "TabBarConfigure", ofType: "plist")!
