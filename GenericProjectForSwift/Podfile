@@ -11,8 +11,12 @@ target 'GenericProjectForSwift' do
 
   pod 'SnapKit'
   pod 'Alamofire', '~> 5.0.0-rc.3'
-  pod 'ObjectMapper', '~> 3.4'
-  pod 'SwiftyJSON', '~> 4.0'
-  pod 'MBProgressHUD', '~> 1.1.0'
-
+  pod 'SwiftyJSON'
+  pod 'IQKeyboardManagerSwift'
+  pod 'ReachabilitySwift'
+  pod 'EmptyDataSet-Swift'
+  pod 'YYKit'
+  pod 'MJRefresh'
+  pod 'SVProgressHUD'
+  pod 'IDealist'
 end

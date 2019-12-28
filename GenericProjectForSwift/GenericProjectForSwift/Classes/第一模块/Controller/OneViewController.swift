@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class OneViewController: LSBaseViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -26,14 +27,17 @@ class OneViewController: LSBaseViewController,UITableViewDelegate,UITableViewDat
     }
     
     override func analysis() {
-        
+
     }
     
     override func createSubViews() {
+        isOpenUpDate = true
         mainTableView.delegate = self
         mainTableView.dataSource = self
         mainTableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
         self.view.addSubview(mainTableView)
+        
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,7 +66,6 @@ class OneViewController: LSBaseViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let PushVC = PushViewController()
         self.navigationController?.pushViewController(PushVC, animated: true)
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

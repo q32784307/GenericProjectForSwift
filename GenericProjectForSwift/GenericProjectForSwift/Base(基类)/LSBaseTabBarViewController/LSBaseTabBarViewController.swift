@@ -59,14 +59,15 @@ class LSBaseTabBarViewController: UITabBarController,UITabBarControllerDelegate 
     }
     
     func setChildViewController(viewController: String,title: String,image: String,selectedImage: String) -> LSBaseNavigationViewController {
-//        let vc = UIViewController.init()
-//        vc.tabBarItem.title = title
-        
         let cls:AnyClass? = NSClassFromString(Bundle.main.infoDictionary!["CFBundleExecutable"] as! String + "." + viewController)
         let vcCls = cls as! UIViewController.Type
         let vc = vcCls.init()
         vc.tabBarItem.title = title
         
+        if #available(iOS 13.0, *) {
+            UITabBar.appearance().tintColor = RedColor
+        }
+            
         //未选中状态
         vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : BlackColor,NSAttributedString.Key.font: SystemFont(FONTSIZE: 10)], for: .normal)
         vc.tabBarItem.image = ImageNamed(name: image).withRenderingMode(.alwaysOriginal)

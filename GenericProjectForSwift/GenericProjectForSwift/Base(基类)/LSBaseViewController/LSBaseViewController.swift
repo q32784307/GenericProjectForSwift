@@ -7,9 +7,26 @@
 //
 
 import UIKit
+import MJRefresh
 
 class LSBaseViewController: UIViewController {
     var navView: LSBaseNavigationView!
+    //是否隐藏系统导航栏
+    var isHidenNaviBar: Bool! {
+        didSet {
+            self.navigationController?.setNavigationBarHidden(isHidenNaviBar, animated: false)
+        }
+    }
+    //是否开启刷新功能
+    var isOpenUpDate: Bool! {
+        didSet {
+            if isOpenUpDate == true {
+                setupRefresh()
+            }
+        }
+    }
+    
+    
     lazy var mainTableView: UITableView! = {
         let tableView = UITableView(frame: CGRect(x: 0, y: CGFloat(NAVIGATION_BAR_HEIGHT), width: ScreenWidth, height: ScreenHeight - CGFloat(NAVIGATION_BAR_HEIGHT) - CGFloat(TAB_BAR_HEIGHT)), style: .grouped)
         tableView.estimatedRowHeight = 0
@@ -31,7 +48,7 @@ class LSBaseViewController: UIViewController {
         self.view.backgroundColor = ViewBackgroundColor
         // Do any additional setup after loading the view.
         //是否隐藏系统导航栏
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        isHidenNaviBar = true
     
         setNavigationView()
     }
@@ -75,6 +92,49 @@ class LSBaseViewController: UIViewController {
         // 主窗口的bounds 和 self的矩形框 是否有重叠
         let intersects: Bool = newFrame.intersects(winBounds)
         return !self.view.isHidden && self.view.alpha > 0.01 && self.view.window == keyWindow && intersects
+    }
+    
+    func setupRefresh() {
+        //下拉刷新
+        let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(headerRereshing))
+        //隐藏时间
+        header.lastUpdatedTimeLabel?.isHidden = true
+        //隐藏状态
+        header.stateLabel?.isHidden = true
+        // 设置文字
+        header.setTitle("下拉刷新数据", for: MJRefreshState.idle)
+        header.setTitle("松开立即刷新", for: MJRefreshState.pulling)
+        header.setTitle("Loading ...", for: MJRefreshState.refreshing)
+        // 设置字体
+        header.stateLabel?.font = SystemFont(FONTSIZE: 15)
+        header.lastUpdatedTimeLabel?.font = SystemFont(FONTSIZE: 14)
+        // 设置颜色
+        header.stateLabel?.textColor = RedColor
+        header.lastUpdatedTimeLabel?.textColor = BlueColor
+        // 设置刷新控件
+        mainTableView.mj_header = header
+        
+        //上拉加载
+        let footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(footerRereshing))
+        // 设置文字
+        footer.setTitle("上拉可加载更多数据", for: MJRefreshState.idle)
+        footer.setTitle("Loading more ...", for: MJRefreshState.refreshing)
+        // 设置字体
+        footer.stateLabel?.font = SystemFont(FONTSIZE: 17)
+        // 设置颜色
+        footer.stateLabel?.textColor = BlueColor
+        // 设置footer
+        mainTableView.mj_footer = footer
+    }
+    
+    //Mark: 设置下拉刷新
+    @objc func headerRereshing() {
+        
+    }
+    
+    //Mark: 设置上拉加载
+    @objc func footerRereshing() {
+        
     }
 
 

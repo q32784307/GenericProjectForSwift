@@ -75,31 +75,31 @@ class LSBaseNavigationView: UIView {
     }
     //右按钮
     var rightButton: UIButton!
-    //左按钮图片
+    //右按钮图片
     var rightButtonImage: String! {
         didSet {
             rightButton.setImage(UIImage.init(named: rightButtonImage), for: .normal)
         }
     }
-    //左按钮文字
+    //右按钮文字
     var rightButtonTitle: String! {
         didSet {
             rightButton.setTitle(rightButtonTitle, for: .normal)
         }
     }
-    //左按钮文字颜色
+    //右按钮文字颜色
     var rightButtonTitleColor: UIColor! {
         didSet {
             rightButton.setTitleColor(rightButtonTitleColor, for: .normal)
         }
     }
-    //是否显示左按钮(默认YES显示)
+    //是否显示右按钮(默认YES显示)
     var isShowRightButton: Bool! {
         didSet {
             rightButton.isHidden = isShowRightButton
         }
     }
-    //左按钮点击事件回调
+    //右按钮点击事件回调
     typealias rightButtonBlock = () ->()
     var rightActionBlock: rightButtonBlock!
     
