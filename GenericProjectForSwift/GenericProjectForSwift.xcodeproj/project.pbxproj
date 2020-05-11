@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82BCB2882469955100356334 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82BCB2872469955100356334 /* Launch Screen.storyboard */; };
 		D00E728923AE0E6B001BF3E4 /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E728823AE0E6B001BF3E4 /* TwoViewController.swift */; };
 		D00E728B23AE0E77001BF3E4 /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E728A23AE0E77001BF3E4 /* ThreeViewController.swift */; };
 		D00E728D23AE0E80001BF3E4 /* FourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E728C23AE0E80001BF3E4 /* FourViewController.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		14FFFC2E1671E361D96085E6 /* Pods-GenericProjectForSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenericProjectForSwift.release.xcconfig"; path = "Target Support Files/Pods-GenericProjectForSwift/Pods-GenericProjectForSwift.release.xcconfig"; sourceTree = "<group>"; };
+		82BCB2872469955100356334 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B2B9E033089EDEEB812B2869 /* Pods_GenericProjectForSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GenericProjectForSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00E728823AE0E6B001BF3E4 /* TwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
 		D00E728A23AE0E77001BF3E4 /* ThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				D0D89D942392006C00B0E5BA /* AppDelegate.swift */,
 				D00E729123AE2A2F001BF3E4 /* GenericProjectForSwift_PrefixHeader.swift */,
 				D00E729323AE2A4F001BF3E4 /* AppConfig.swift */,
+				82BCB2872469955100356334 /* Launch Screen.storyboard */,
 				D0D89D9D2392006D00B0E5BA /* Assets.xcassets */,
 				D0D89DA22392006D00B0E5BA /* Info.plist */,
 			);
@@ -411,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82BCB2882469955100356334 /* Launch Screen.storyboard in Resources */,
 				D0895F1423B5D1B700FA8036 /* 城市数据.txt in Resources */,
 				D0D89D9E2392006D00B0E5BA /* Assets.xcassets in Resources */,
 				D0D89DB8239210D100B0E5BA /* TabBarConfigure.plist in Resources */,
@@ -611,7 +615,7 @@
 			baseConfigurationReference = F112ED2CB8612D3CC30215A5 /* Pods-GenericProjectForSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76CCWEP8FC;
@@ -636,7 +640,7 @@
 			baseConfigurationReference = 14FFFC2E1671E361D96085E6 /* Pods-GenericProjectForSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76CCWEP8FC;
