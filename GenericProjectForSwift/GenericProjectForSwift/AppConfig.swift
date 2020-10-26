@@ -98,6 +98,12 @@ let Is_iPhoneXr = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main
 let Is_iPhoneXs = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1125, height: 2436).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
 //判断iPhone Xs Max
 let Is_iPhoneXs_Max = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1242, height: 2688).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
+//判断iPhone 12和iPhone 12 Pro
+let Is_iPhone12 = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1170, height: 2532).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
+//判断iPhone 12 mini
+let Is_iPhone12_mini = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1080, height: 2340).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
+//判断iPhone 12 Pro Max
+let Is_iPhone12_Pro_Max = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1284, height: 2778).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
 //判断iPad mini
 let Is_iPad_Mine = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1536, height: 2048).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPHONE : false)
 //判断iPad
@@ -116,11 +122,11 @@ let Is_iPad_Pro_12_9 = (UIScreen.instancesRespond(to: #selector(getter: UIScreen
 //(isLiuHaiPhone);})
 //
 //状态栏高度
-let STATUS_BAR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true) ? 44.0 : 20.0)
+let STATUS_BAR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true || Is_iPhone12 == true || Is_iPhone12_mini == true || Is_iPhone12_Pro_Max == true) ? 44.0 : 20.0)
 //状态栏+导航栏高度
-let NAVIGATION_BAR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true) ? 88.0 : 64.0)
+let NAVIGATION_BAR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true || Is_iPhone12 == true || Is_iPhone12_mini == true || Is_iPhone12_Pro_Max == true) ? 88.0 : 64.0)
 //tabBar高度
-let TAB_BAR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true) ? 83.0 : 49.0)
+let TAB_BAR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true || Is_iPhone12 == true || Is_iPhone12_mini == true || Is_iPhone12_Pro_Max == true) ? 83.0 : 49.0)
 //home indicator高度（底部安全曲区域）
-let HOME_INDICATOR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true) ? 34.0 : 0.0)
+let HOME_INDICATOR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true || Is_iPhone12 == true || Is_iPhone12_mini == true || Is_iPhone12_Pro_Max == true) ? 34.0 : 0.0)
 ///***********************************************************************************************************/
