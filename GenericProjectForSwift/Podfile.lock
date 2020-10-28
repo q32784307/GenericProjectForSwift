@@ -8,6 +8,7 @@ PODS:
   - JXSegmentedView (0.0.4)
   - MJRefresh (3.5.0)
   - ReachabilitySwift (5.0.0)
+  - ReactiveSwift (6.5.0)
   - SnapKit (5.0.1)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - MJRefresh
   - ReachabilitySwift
+  - ReactiveSwift
   - SnapKit
   - SVProgressHUD
   - SwiftyJSON
@@ -38,6 +40,7 @@ SPEC REPOS:
     - JXSegmentedView
     - MJRefresh
     - ReachabilitySwift
+    - ReactiveSwift
     - SnapKit
     - SVProgressHUD
     - SwiftyJSON
@@ -52,11 +55,12 @@ SPEC CHECKSUMS:
   JXSegmentedView: 2b036fc37f26fbd369f79b8953c610efe19bd529
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  ReactiveSwift: 8d159904084e908856cde90b2e28823f3c7e485f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: cec28b680fe29f2246feddbfd93d0ea7a2a18810
+PODFILE CHECKSUM: 9e9b65ce1c21173477a90f0a9a8606ec9a930642
 
 COCOAPODS: 1.10.0.beta.1

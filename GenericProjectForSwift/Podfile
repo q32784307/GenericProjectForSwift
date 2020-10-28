@@ -15,4 +15,5 @@ target 'GenericProjectForSwift' do
   pod 'SVProgressHUD'
   pod 'IDealist'
   pod 'AttributedString'
+  pod 'ReactiveSwift'
 end
