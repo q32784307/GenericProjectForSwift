@@ -16,4 +16,5 @@ target 'GenericProjectForSwift' do
   pod 'IDealist'
   pod 'AttributedString'
   pod 'ReactiveSwift'
+  pod 'HandyJSON'
 end

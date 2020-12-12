@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.4.0)
   - AttributedString (1.6.8)
   - EmptyDataSet-Swift (5.0.0)
+  - HandyJSON (5.0.2)
   - IDealist (0.0.9):
     - JXSegmentedView (= 0.0.4)
   - IQKeyboardManagerSwift (6.5.6)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - Alamofire
   - AttributedString
   - EmptyDataSet-Swift
+  - HandyJSON
   - IDealist
   - IQKeyboardManagerSwift
   - MJRefresh
@@ -35,6 +37,7 @@ SPEC REPOS:
     - Alamofire
     - AttributedString
     - EmptyDataSet-Swift
+    - HandyJSON
     - IDealist
     - IQKeyboardManagerSwift
     - JXSegmentedView
@@ -50,6 +53,7 @@ SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   AttributedString: 20191014381c897ea03bd6733a21b8f6e98145d1
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   IDealist: 5a5c7b38e644c2634a524185be5f3fbc25dd0ea5
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JXSegmentedView: 2b036fc37f26fbd369f79b8953c610efe19bd529
@@ -61,6 +65,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 9e9b65ce1c21173477a90f0a9a8606ec9a930642
+PODFILE CHECKSUM: 1b6e30786fd8f5c9dd55a3bf21cf0904b3bbdeee
 
 COCOAPODS: 1.10.0.beta.1
