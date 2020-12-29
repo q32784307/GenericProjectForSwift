@@ -18,4 +18,5 @@ target 'GenericProjectForSwift' do
   pod 'AttributedString'
   pod 'ReactiveSwift'
   pod 'HandyJSON'
+  pod 'Kingfisher'
 end

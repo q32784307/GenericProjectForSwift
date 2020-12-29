@@ -7,6 +7,9 @@ PODS:
     - JXSegmentedView (= 0.0.4)
   - IQKeyboardManagerSwift (6.5.6)
   - JXSegmentedView (0.0.4)
+  - Kingfisher (5.15.8):
+    - Kingfisher/Core (= 5.15.8)
+  - Kingfisher/Core (5.15.8)
   - MJRefresh (3.5.0)
   - ReachabilitySwift (5.0.0)
   - ReactiveSwift (6.5.0)
@@ -21,6 +24,7 @@ DEPENDENCIES:
   - HandyJSON
   - IDealist
   - IQKeyboardManagerSwift
+  - Kingfisher
   - MJRefresh
   - ReachabilitySwift
   - ReactiveSwift
@@ -37,6 +41,7 @@ SPEC REPOS:
     - IDealist
     - IQKeyboardManagerSwift
     - JXSegmentedView
+    - Kingfisher
     - MJRefresh
     - ReachabilitySwift
     - ReactiveSwift
@@ -52,6 +57,7 @@ SPEC CHECKSUMS:
   IDealist: 5a5c7b38e644c2634a524185be5f3fbc25dd0ea5
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JXSegmentedView: 2b036fc37f26fbd369f79b8953c610efe19bd529
+  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   ReactiveSwift: 8d159904084e908856cde90b2e28823f3c7e485f
@@ -59,6 +65,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: b38a3e17569d8e59e234b18d20c22c660608ea52
+PODFILE CHECKSUM: a04d8da0adf4b547ebfd199ab4fa6dd52cf31ae0
 
 COCOAPODS: 1.10.0
