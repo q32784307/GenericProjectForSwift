@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.0)
+  - Alamofire (5.4.1)
   - AttributedString (1.6.8)
   - EmptyDataSet-Swift (5.0.0)
   - HandyJSON (5.0.2)
@@ -50,7 +50,7 @@ SPEC REPOS:
     - YYKit
 
 SPEC CHECKSUMS:
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   AttributedString: 20191014381c897ea03bd6733a21b8f6e98145d1
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
@@ -65,6 +65,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 1b6e30786fd8f5c9dd55a3bf21cf0904b3bbdeee
+PODFILE CHECKSUM: c6e72812bdb6e78fb8c96abc6e3b23face718390
 
-COCOAPODS: 1.10.0.beta.1
+COCOAPODS: 1.10.0
