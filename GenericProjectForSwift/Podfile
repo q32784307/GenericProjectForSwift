@@ -12,7 +12,6 @@ target 'GenericProjectForSwift' do
   pod 'IQKeyboardManagerSwift'
   pod 'ReachabilitySwift'
   pod 'EmptyDataSet-Swift'
-  pod 'YYKit'
   pod 'MJRefresh'
   pod 'SVProgressHUD'
   pod 'IDealist'
