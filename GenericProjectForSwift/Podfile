@@ -19,4 +19,5 @@ target 'GenericProjectForSwift' do
   pod 'ReactiveSwift'
   pod 'HandyJSON'
   pod 'Kingfisher'
+  pod 'ZLPhotoBrowser'
 end
