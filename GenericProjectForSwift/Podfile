@@ -1,10 +1,45 @@
-# source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '12.0'
+#source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
 
 install! 'cocoapods', :deterministic_uuids => false, :warn_for_multiple_pod_sources => false, :warn_for_unused_master_specs_repo => false
 
-target 'GenericProjectForSwift' do
+#下列代码是自动化处理第三方库最低支持的系统版本，最好是跟随工程支持的最低版本配置
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+    end
+  end
+end
 
+target 'GenericProjectForSwift' do
+  pod 'SnapKit'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'IQKeyboardManagerSwift'
+  pod 'ReachabilitySwift'
+  pod 'EmptyDataSet-Swift'
+  pod 'MJRefresh'
+  pod 'SVProgressHUD'
+  pod 'IDealist'
+  pod 'AttributedString'
+  pod 'ReactiveSwift'
+  pod 'HandyJSON'
+  pod 'Kingfisher'
+  pod 'ZLPhotoBrowser'
+  pod 'TZImagePickerController'
+  pod 'WMZPageController'
+  pod 'WMZBanner'
+  pod 'SDCycleScrollView'
+  pod 'GKPhotoBrowser'
+  #友盟分享
+  pod 'UMCommon'
+  pod 'UMDevice'
+  pod 'UMLink'
+  pod 'UMShare/UI'
+  #pod 'UMShare/Social/WeChat'
+  pod 'UMShare/Social/QQ'
+  pod 'UMShare/Social/Sina'
 end

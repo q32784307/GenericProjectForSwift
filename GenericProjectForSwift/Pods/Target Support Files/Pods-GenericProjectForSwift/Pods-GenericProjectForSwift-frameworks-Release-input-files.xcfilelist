@@ -1,12 +1,25 @@
 ${PODS_ROOT}/Target Support Files/Pods-GenericProjectForSwift/Pods-GenericProjectForSwift-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/AttributedString/AttributedString.framework
 ${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework
+${BUILT_PRODUCTS_DIR}/GKLivePhotoManager/GKLivePhotoManager.framework
+${BUILT_PRODUCTS_DIR}/GKPhotoBrowser/GKPhotoBrowser.framework
+${BUILT_PRODUCTS_DIR}/GKSliderView/GKSliderView.framework
+${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework
 ${BUILT_PRODUCTS_DIR}/IDealist/IDealist.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
 ${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework
+${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework
+${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
+${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework
+${BUILT_PRODUCTS_DIR}/WMZBanner/WMZBanner.framework
+${BUILT_PRODUCTS_DIR}/WMZPageController/WMZPageController.framework
+${BUILT_PRODUCTS_DIR}/ZLPhotoBrowser/ZLPhotoBrowser.framework

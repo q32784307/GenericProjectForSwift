@@ -1,3 +1,194 @@
-PODFILE CHECKSUM: 28e8ce7ce4789d714381fcb1d1bcab4e33117f5b
+PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - Alamofire (5.10.2)
+  - AttributedString (3.4.2):
+    - AttributedString/Privacy (= 3.4.2)
+  - AttributedString/Privacy (3.4.2)
+  - EmptyDataSet-Swift (5.0.0)
+  - GKLivePhotoManager (1.0.5)
+  - GKPhotoBrowser (3.2.1):
+    - GKPhotoBrowser/Default (= 3.2.1)
+  - GKPhotoBrowser/AF (3.2.1):
+    - AFNetworking
+    - GKLivePhotoManager
+    - GKPhotoBrowser/Core
+  - GKPhotoBrowser/AVPlayer (3.2.1):
+    - GKPhotoBrowser/Core
+  - GKPhotoBrowser/Core (3.2.1):
+    - GKPhotoBrowser/Resources
+  - GKPhotoBrowser/Cover (3.2.1):
+    - GKPhotoBrowser/Core
+  - GKPhotoBrowser/Default (3.2.1):
+    - GKPhotoBrowser/AF
+    - GKPhotoBrowser/AVPlayer
+    - GKPhotoBrowser/Cover
+    - GKPhotoBrowser/Progress
+    - GKPhotoBrowser/SD
+  - GKPhotoBrowser/Progress (3.2.1):
+    - GKPhotoBrowser/Core
+    - GKSliderView
+  - GKPhotoBrowser/Resources (3.2.1)
+  - GKPhotoBrowser/SD (3.2.1):
+    - GKPhotoBrowser/Core
+    - SDWebImage (~> 5.0)
+  - GKSliderView (1.2.3)
+  - HandyJSON (5.0.2)
+  - IDealist (0.0.9):
+    - JXSegmentedView (= 0.0.4)
+  - IQKeyboardManagerSwift (6.5.16)
+  - JXSegmentedView (0.0.4)
+  - Kingfisher (7.12.0)
+  - MJRefresh (3.7.9)
+  - ReachabilitySwift (5.2.4)
+  - ReactiveSwift (7.2.0)
+  - SDCycleScrollView (1.82):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.21.0):
+    - SDWebImage/Core (= 5.21.0)
+  - SDWebImage/Core (5.21.0)
+  - SnapKit (5.7.1)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
+  - SwiftyJSON (5.0.2)
+  - TZImagePickerController (3.8.8):
+    - TZImagePickerController/Basic (= 3.8.8)
+    - TZImagePickerController/Location (= 3.8.8)
+  - TZImagePickerController/Basic (3.8.8)
+  - TZImagePickerController/Location (3.8.8)
+  - UMCommon (7.5.2):
+    - UMDevice
+  - UMDevice (3.4.0)
+  - UMLink (1.3.0):
+    - UMCommon
+  - UMShare/Core (6.10.13):
+    - UMCommon
+  - UMShare/Social/QQ (6.10.13):
+    - UMCommon
+    - UMShare/Core
+    - UMShare/Social/ReducedQQ
+  - UMShare/Social/ReducedQQ (6.10.13):
+    - UMCommon
+    - UMShare/Core
+  - UMShare/Social/ReducedSina (6.10.13):
+    - UMCommon
+    - UMShare/Core
+  - UMShare/Social/Sina (6.10.13):
+    - UMCommon
+    - UMShare/Core
+    - UMShare/Social/ReducedSina
+  - UMShare/UI (6.10.13):
+    - UMCommon
+    - UMShare/Core
+  - WMZBanner (1.2.0):
+    - SDWebImage
+  - WMZPageController (1.5.5)
+  - ZLPhotoBrowser (4.5.8):
+    - ZLPhotoBrowser/Core (= 4.5.8)
+  - ZLPhotoBrowser/Core (4.5.8)
+
+DEPENDENCIES:
+  - Alamofire
+  - AttributedString
+  - EmptyDataSet-Swift
+  - GKPhotoBrowser
+  - HandyJSON
+  - IDealist
+  - IQKeyboardManagerSwift
+  - Kingfisher
+  - MJRefresh
+  - ReachabilitySwift
+  - ReactiveSwift
+  - SDCycleScrollView
+  - SnapKit
+  - SVProgressHUD
+  - SwiftyJSON
+  - TZImagePickerController
+  - UMCommon
+  - UMDevice
+  - UMLink
+  - UMShare/Social/QQ
+  - UMShare/Social/Sina
+  - UMShare/UI
+  - WMZBanner
+  - WMZPageController
+  - ZLPhotoBrowser
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - Alamofire
+    - AttributedString
+    - EmptyDataSet-Swift
+    - GKLivePhotoManager
+    - GKPhotoBrowser
+    - GKSliderView
+    - HandyJSON
+    - IDealist
+    - IQKeyboardManagerSwift
+    - JXSegmentedView
+    - Kingfisher
+    - MJRefresh
+    - ReachabilitySwift
+    - ReactiveSwift
+    - SDCycleScrollView
+    - SDWebImage
+    - SnapKit
+    - SVProgressHUD
+    - SwiftyJSON
+    - TZImagePickerController
+    - UMCommon
+    - UMDevice
+    - UMLink
+    - UMShare
+    - WMZBanner
+    - WMZPageController
+    - ZLPhotoBrowser
+
+SPEC CHECKSUMS:
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  AttributedString: 48343fcecea107c89319e09436b6d19e90e69981
+  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
+  GKLivePhotoManager: 7d5bc069382d5a4c1d44a846727b0beb08582256
+  GKPhotoBrowser: 3e7a6e0608734136f2fa04e8b4025e7438a121b8
+  GKSliderView: 7c6f853afeb0ae370bb8dce76ec669d6e9109d1d
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  IDealist: 5a5c7b38e644c2634a524185be5f3fbc25dd0ea5
+  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
+  JXSegmentedView: 2b036fc37f26fbd369f79b8953c610efe19bd529
+  Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
+  MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
+  ReachabilitySwift: 32793e867593cfc1177f5d16491e3a197d2fccda
+  ReactiveSwift: d33487e3cc4887c2ba5a710abd45bfa7595db5ea
+  SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
+  SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
+  SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
+  TZImagePickerController: d084a7b97c82d387e7669dd86dc9a9057500aacf
+  UMCommon: 72513a01ebca2dead52f2112b4d7c6196dbbe412
+  UMDevice: dcdf7ec167387837559d149fbc7d793d984faf82
+  UMLink: 6c43368c378c2b7e20ed8427f896e9810e419ca1
+  UMShare: c209e51f2a87dba6df34040b5c06b0a1b8599afb
+  WMZBanner: 42d02896dc7a67a4d7a2ebe1ef5b7a79f8d2c540
+  WMZPageController: 87dd82d1e3528cd362de19b9a74fd6890d6e1906
+  ZLPhotoBrowser: 52c8b386e3f9a7885676027c529a015147df502c
+
+PODFILE CHECKSUM: 21ab3918ad127c9079dbab9cc24b3ffc7f436a0a
 
 COCOAPODS: 1.16.2
