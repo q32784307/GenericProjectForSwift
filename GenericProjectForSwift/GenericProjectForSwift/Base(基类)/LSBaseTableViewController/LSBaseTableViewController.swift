@@ -13,7 +13,7 @@ class LSBaseTableViewController: LSBaseViewController, UITableViewDelegate, UITa
     
     var pageInt = 1
     var mainTableView: UITableView!
-    var listArray = [LSBaseModel]()
+    var listArray = [Any]()
     
     var requestUrl: String = ""
     var requestParams: Dictionary = Dictionary<String, Any>()
@@ -40,6 +40,13 @@ class LSBaseTableViewController: LSBaseViewController, UITableViewDelegate, UITa
             if let config = dict["data"] as? [String: Any],
                let config2 = config["datalist"] as? [[String: Any]] {
                 self.listArray = [LSBaseModel].deserialize(from: config2) as? [LSBaseModel] ?? []
+                
+//                self.listArray = modelType.deserialize(from: config2) as? [LSBaseModel] ?? []
+//                if let deserializedArray = [LSBaseModel].deserialize(from: config2) as? [LSBaseModel] {
+//                    self.listArray = deserializedArray
+//                } else {
+//                    print("反序列化失败")
+//                }
             }
             
             self.mainTableView.mj_header?.endRefreshing()

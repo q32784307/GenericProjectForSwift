@@ -42,4 +42,10 @@ class OneModel: LSBaseModel {
     var next_show_time: String = ""
     var page: String = ""
     var is_car_zhijian: String = ""
+    
+    
+    static func deserialize(from: [[String: Any]]) -> [OneModel]? {
+        // 解析逻辑
+        return nil // 返回解析后的数组
+    }
 }
