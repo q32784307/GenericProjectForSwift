@@ -2,24 +2,28 @@
 //  LSBaseTabBarView.swift
 //  GenericProjectForSwift
 //
-//  Created by 社科赛斯 on 2019/12/22.
+//  Created by 漠然丶情到深处 on 2019/12/22.
 //  Copyright © 2019 漠然丶情到深处. All rights reserved.
 //
 
 import UIKit
 
+protocol LSBaseTabBarViewDelegate: AnyObject {
+    func tabBarMoreButtonAction(_ tabBar: LSBaseTabBarView)
+}
+
 class LSBaseTabBarView: UITabBar {
     
     var MoreButton: UIButton!
-    var oldSafeAreaInsets: UIEdgeInsets!
-    
+    var oldSafeAreaInsets: UIEdgeInsets = .zero
+    weak var tabBarDelegate: LSBaseTabBarViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = WhiteColor
+        self.backgroundColor = LSWhiteColor
         
         MoreButton = UIButton.init()
-        MoreButton.setBackgroundImage(ImageNamed(name: "plus"), for: .normal)
+        MoreButton.setBackgroundImage(LSImageNamed(name: "plus"), for: .normal)
         MoreButton.addTarget(self, action: #selector(MoreAction), for: .touchUpInside)
         MoreButton.size = MoreButton.currentBackgroundImage!.size
         self.addSubview(MoreButton)
@@ -86,9 +90,7 @@ class LSBaseTabBarView: UITabBar {
     //点击了发布按钮
     @objc func MoreAction() {
         //如果tabbar的代理实现了对应的代理方法，那么就调用代理的该方法
-//        if ([self.delegate respondsToSelector:@selector(tabBarMoreButtonAction:)]) {
-//            [self.BarButtonDelegate tabBarMoreButtonAction:self];
-//        }
+        tabBarDelegate?.tabBarMoreButtonAction(self)
     }
     
     required init?(coder: NSCoder) {

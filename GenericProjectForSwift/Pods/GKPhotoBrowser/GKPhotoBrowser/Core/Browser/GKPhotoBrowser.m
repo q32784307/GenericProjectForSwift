@@ -126,7 +126,7 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
-    if (!self.gestureHandler.isDismiss) return;
+    if (!self.handler.isDismiss) return;
     
     [self.curPhotoView didDismissDisappear];
     

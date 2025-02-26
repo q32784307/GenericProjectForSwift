@@ -2,13 +2,13 @@
 //  LSBaseNavigationViewController.swift
 //  GenericProjectForSwift
 //
-//  Created by 社科赛斯 on 2019/12/3.
+//  Created by 漠然丶情到深处 on 2019/12/3.
 //  Copyright © 2019 漠然丶情到深处. All rights reserved.
 //
 
 import UIKit
 
-class LSBaseNavigationViewController: UINavigationController,UIGestureRecognizerDelegate,UINavigationControllerDelegate {
+class LSBaseNavigationViewController: UINavigationController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
 
     var popDelegate: AnyObject!
     var popRecognizer: UIScreenEdgePanGestureRecognizer!
@@ -25,13 +25,9 @@ class LSBaseNavigationViewController: UINavigationController,UIGestureRecognizer
     
     //解决手势失效问题
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if isSystemSlidBack {
-            self.interactivePopGestureRecognizer?.isEnabled = true
-            popRecognizer.isEnabled = false
-        }else{
-            self.interactivePopGestureRecognizer?.isEnabled = false
-            popRecognizer.isEnabled = true
-        }
+        let isPopGestureEnabled = isSystemSlidBack
+        self.interactivePopGestureRecognizer?.isEnabled = isPopGestureEnabled!
+        popRecognizer.isEnabled = !isPopGestureEnabled!
     }
     
     //根视图禁用右划返回
@@ -58,7 +54,7 @@ class LSBaseNavigationViewController: UINavigationController,UIGestureRecognizer
                 vc.view.top = 0
                 vc.navigationController?.setNavigationBarHidden(true, animated: animated)
             }else{
-                vc.view.top = CGFloat(NAVIGATION_BAR_HEIGHT)
+                vc.view.top = CGFloat(LSNAVIGATION_STATUS_HEIGHT())
                 vc.navigationController?.setNavigationBarHidden(false, animated: animated)
             }
         }

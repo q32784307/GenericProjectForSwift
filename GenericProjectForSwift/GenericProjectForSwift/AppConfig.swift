@@ -2,57 +2,72 @@
 //  AppConfig.swift
 //  GenericProjectForSwift
 //
-//  Created by 社科赛斯 on 2019/12/21.
+//  Created by 漠然丶情到深处 on 2019/12/21.
 //  Copyright © 2019 漠然丶情到深处. All rights reserved.
 //
 
 import UIKit
-
+import Foundation
 
 /****************************************************颜色****************************************************/
 /**
  * 颜色
  */
-func kRGBAColor(r: CGFloat,_ g: CGFloat,_ b: CGFloat,_ a: CGFloat) -> UIColor {
+func LS_kRGBAColor(r: CGFloat,_ g: CGFloat,_ b: CGFloat,_ a: CGFloat) -> UIColor {
     return UIColor(red: (r)/255.0, green: (g)/255.0, blue: (b)/255.0, alpha: (a))
 }
-func RGBAColor(r: CGFloat,_ g: CGFloat,_ b: CGFloat,_ a: CGFloat) -> UIColor {
+func LS_RGBAColor(r: CGFloat,_ g: CGFloat,_ b: CGFloat,_ a: CGFloat) -> UIColor {
     return UIColor(red: (r), green: (g), blue: (b), alpha: (a))
 }
 /**
  * 页面底色
  */
-let ViewBackgroundColor = kRGBAColor(r: 242.0, 242.0, 242.0, 1)
+let LSViewBackgroundColor = LS_kRGBAColor(r: 247.0, 246.0, 250.0, 1)
+/**
+ * 主题色
+ */
+let LSThemeColor = LS_kRGBAColor(r: 240.0, 253.0, 255.0, 1)
+                                 
 /**
  * rgb颜色转换（16进制->10进制）
  */
-func ColorFromRGB(rgbValue: CGFloat) -> UIColor {
+func LSColorFromRGB(rgbValue: CGFloat) -> UIColor {
     return UIColor(red: ((CGFloat)((Int(rgbValue) & 0xFF0000) >> 16))/255.0, green: ((CGFloat)((Int(rgbValue) & 0xFF00) >> 8))/255.0, blue: ((CGFloat)(Int(rgbValue) & 0xFF))/255.0, alpha: 1.0)
 }
-let ClearColor = UIColor.clear
-let WhiteColor = UIColor.white
-let BlackColor = UIColor.black
-let GrayColor = UIColor.gray
-let BlueColor = UIColor.blue
-let RedColor = UIColor.red
-let CyanColor = UIColor.cyan
-let YellowColor = UIColor.yellow
-let OrangeColor = UIColor.orange
-let PurpleColor = UIColor.purple
-let BrownColor = UIColor.brown
-let GreenColor = UIColor.green
-let MagentaColor = UIColor.magenta
-let DarkGrayColor = UIColor.darkGray
-let LightGrayColor = UIColor.lightGray
+let LSClearColor = UIColor.clear
+let LSWhiteColor = UIColor.white
+let LSBlackColor = UIColor.black
+let LSGrayColor = UIColor.gray
+let LSBlueColor = UIColor.blue
+let LSRedColor = UIColor.red
+let LSCyanColor = UIColor.cyan
+let LSYellowColor = UIColor.yellow
+let LSOrangeColor = UIColor.orange
+let LSPurpleColor = UIColor.purple
+let LSBrownColor = UIColor.brown
+let LSGreenColor = UIColor.green
+let LSMagentaColor = UIColor.magenta
+let LSDarkGrayColor = UIColor.darkGray
+let LSLightGrayColor = UIColor.lightGray
 //字体
-func BoldSystemFont(FONTSIZE: CGFloat) -> UIFont {
-    return UIFont.boldSystemFont(ofSize: FONTSIZE)
+func LSSystemFont(NAME:String, FONTSIZE: CGFloat) -> UIFont {
+    return UIFont(name: String(format: "PingFangSC-%@", NAME), size: FONTSIZE)!
 }
-func SystemFont(FONTSIZE: CGFloat) -> UIFont {
-    return UIFont.systemFont(ofSize: FONTSIZE)
+
+func LSFontRegular(FONTSIZE: CGFloat) -> UIFont {
+    return LSSystemFont(NAME: "Regular", FONTSIZE: FONTSIZE)
 }
+
+func LSFontMedium(FONTSIZE: CGFloat) -> UIFont {
+    return LSSystemFont(NAME: "Medium", FONTSIZE: FONTSIZE)
+}
+
+func LSFontSemibold(FONTSIZE: CGFloat) -> UIFont {
+    return LSSystemFont(NAME: "Semibold", FONTSIZE: FONTSIZE)
+}
+
 //定义UIImage对象
-func ImageNamed(name: String) -> UIImage {
+func LSImageNamed(name: String) -> UIImage {
     return UIImage.init(named: name)!
 }
 
@@ -60,73 +75,218 @@ func ImageNamed(name: String) -> UIImage {
 /**
  * 屏幕宽和高
  */
-let ScreenWidth = UIScreen.main.bounds.size.width
-let ScreenHeight = UIScreen.main.bounds.size.height
-let ScreenBounds = UIScreen.main.bounds
-//判断横屏还是竖屏
-let IsPortrait = UIApplication.shared.statusBarOrientation == UIInterfaceOrientation.portrait || UIApplication.shared.statusBarOrientation == UIInterfaceOrientation.portraitUpsideDown
-func SYRealValue(value: CGFloat) ->CGFloat {
-    return IsPortrait == true ? ((value) / 375.0 * ScreenWidth) : ((value) / 375.0 * ScreenHeight)
+let LSScreenWidth = UIScreen.main.bounds.size.width
+let LSScreenHeight = UIScreen.main.bounds.size.height
+let LSScreenBounds = UIScreen.main.bounds
+
+func LSSYRealValue(value: CGFloat) -> CGFloat {
+    return floor((value / 375.0) * LSScreenWidth)
 }
-//----------------判断当前的iPhone设备/系统版本---------------
-// 判断是否为iPhone
-let IS_IPHONE = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone)
-// 判断是否为iPad
-let IS_IPAD = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad)
 
 //----------------判断系统版本---------------
 // 获取系统版本
 let IOS_SYSTEM_VERSION = Double(UIDevice.current.systemVersion)
-// 判断 iOS 8 或更高的系统版本
-let IOS_VERSION_8_OR_LATER = Double(UIDevice.current.systemVersion)! >= 8.0 ? true :false
-// 判断 iOS 10 或更高的系统版本
-let IOS_VERSION_10_OR_LATER = Double(UIDevice.current.systemVersion)! >= 10.0 ? true :false
 
-// 判断iPhone 4/4S
-let iPhone4_4S = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 640, height: 960).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-// 判断iPhone 5/5S/5C/SE
-let iPhone5_5SE = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 640, height: 1136).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-// 判断iPhone 6/6S/7/8
-let iPhone6_6S = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 750, height: 1334).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-// 判断iPhone 6Plus/6SPlus/7P/8P
-let iPhone6Plus_8Plus = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1080, height: 1920).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-//判断iPhone X
-let Is_iPhoneX = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1125, height: 2436).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-//判断iPHone Xr
-let Is_iPhoneXr = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 828, height: 1792).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-//判断iPhone Xs
-let Is_iPhoneXs = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1125, height: 2436).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-//判断iPhone Xs Max
-let Is_iPhoneXs_Max = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1242, height: 2688).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-//判断iPhone 12和iPhone 12 Pro
-let Is_iPhone12 = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1170, height: 2532).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-//判断iPhone 12 mini
-let Is_iPhone12_mini = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1080, height: 2340).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-//判断iPhone 12 Pro Max
-let Is_iPhone12_Pro_Max = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1284, height: 2778).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPAD : false)
-//判断iPad mini
-let Is_iPad_Mine = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1536, height: 2048).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPHONE : false)
-//判断iPad
-let Is_iPad = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1536, height: 2048).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPHONE : false)
-//判断iPad Pro(10.5寸)
-let Is_iPad_Pro_10_5 = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 1668, height: 2224).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPHONE : false)
-//判断iPad Pro(12.9寸)
-let Is_iPad_Pro_12_9 = (UIScreen.instancesRespond(to: #selector(getter: UIScreen.main.currentMode)) ? CGSize(width: 2048, height: 2732).equalTo((UIScreen.main.currentMode?.size)!) && !IS_IPHONE : false)
+/// 顶部安全区高度
+func LSSafeDistanceTop() -> CGFloat {
+    if #available(iOS 13.0, *) {
+        let scene = UIApplication.shared.connectedScenes.first
+        guard let windowScene = scene as? UIWindowScene else { return 0 }
+        guard let window = windowScene.windows.first else { return 0 }
+        return window.safeAreaInsets.top
+    } else if #available(iOS 11.0, *) {
+        guard let window = UIApplication.shared.windows.first else { return 0 }
+        return window.safeAreaInsets.top
+    }
+    return 0;
+}
 
-// 主要是用于区分是否是 刘海屏
-//#define LiuHaiPhone \
-//({BOOL isLiuHaiPhone = NO;\
-//if (@available(iOS 11.0, *)) {\
-//isLiuHaiPhone = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
-//}\
-//(isLiuHaiPhone);})
+/// 底部安全区高度
+func LSSafeDistanceBottom() -> CGFloat {
+    if #available(iOS 13.0, *) {
+        let scene = UIApplication.shared.connectedScenes.first
+        guard let windowScene = scene as? UIWindowScene else { return 0 }
+        guard let window = windowScene.windows.first else { return 0 }
+        return window.safeAreaInsets.bottom
+    } else if #available(iOS 11.0, *) {
+        guard let window = UIApplication.shared.windows.first else { return 0 }
+        return window.safeAreaInsets.bottom
+    }
+    return 0;
+}
+
+/// 顶部状态栏高度（包括安全区）
+func LSSTATUS_BAR_HEIGHT() -> CGFloat {
+    var statusBarHeight: CGFloat = 0
+    if #available(iOS 13.0, *) {
+        let scene = UIApplication.shared.connectedScenes.first
+        guard let windowScene = scene as? UIWindowScene else { return 0 }
+        guard let statusBarManager = windowScene.statusBarManager else { return 0 }
+        statusBarHeight = statusBarManager.statusBarFrame.height
+    } else {
+        statusBarHeight = UIApplication.shared.statusBarFrame.height
+    }
+    return statusBarHeight
+}
+
+/// 导航栏高度
+func LSNAVIGATION_BAR_HEIGHT() -> CGFloat {
+    return 44.0
+}
+
+/// 状态栏+导航栏的高度
+func LSNAVIGATION_STATUS_HEIGHT() -> CGFloat {
+    return LSSTATUS_BAR_HEIGHT() + LSNAVIGATION_BAR_HEIGHT()
+}
+
+/// 底部导航栏高度
+func LSTAB_BAR_HEIGHT() -> CGFloat {
+    return 49.0
+}
+
+/// 底部导航栏高度（包括安全区）
+func LSTAB_HOME_HEIGHT() -> CGFloat {
+    return LSTAB_BAR_HEIGHT() + LSSafeDistanceBottom()
+}
+///***********************************************************************************************************/
+
+/************************************************自定义打印************************************************/
+func LSNSLog<T>(_ message: T, file: String = #file, funcName: String = #function, lineNum: Int = #line) {
+    #if DEBUG
+    let file2 = (file as NSString).lastPathComponent
+    DispatchQueue.global(qos: .background).async {
+        print("***开始***\n类名:\(file2)\n方法名:[\(funcName)](第\(lineNum)行)\n\(message)\n***结束***")
+    }
+    #endif
+}
+///***********************************************************************************************************/
+
+/************************************************通知************************************************/
+// 创建通知
+func LSAddNotification(observer: Any, selector: Selector, key: String) {
+    NotificationCenter.default.addObserver(observer, selector: selector, name: Notification.Name(key), object: nil)
+}
+
+// 发送通知
+func LSSendNotification(key: String) {
+    NotificationCenter.default.post(name: Notification.Name(key), object: nil, userInfo: nil)
+}
+
+// 移除通知
+func LSRemoveNotification(observer: Any, key: String) {
+    NotificationCenter.default.removeObserver(observer, name: Notification.Name(key), object: nil)
+}
+///***********************************************************************************************************/
+
+/************************************************本地储存************************************************/
+///// 存
+func LSSaveUserDefault(obj: Any, key: String) {
+    UserDefaults.standard.set(obj, forKey: key)
+    UserDefaults.standard.synchronize()
+}
+
+func LSSaveUserDefaultBool(value: Bool, forKey key: String) {
+    UserDefaults.standard.set(value, forKey: key)
+    UserDefaults.standard.synchronize()
+}
+
+// 取
+func LSGetUserDefault(key: String) -> Any? {
+    return UserDefaults.standard.object(forKey: key)
+}
+
+func LSGetUserDefaultBool(forKey key: String) -> Bool {
+    return UserDefaults.standard.bool(forKey: key)
+}
+
+// 删除
+func LSRemoveUserDefault(key: String) {
+    UserDefaults.standard.removeObject(forKey: key)
+    UserDefaults.standard.synchronize()
+}
+///***********************************************************************************************************/
+
+/************************************************判断数据是否为空************************************************/
+import Foundation
+
+// 字符串是否为空
+func LSIsNilString(_ string: Any?) -> Bool {
+    return (string as? String)?.isEmpty ?? true
+}
+
+// 数组是否为空
+func LSIsNullArray(_ array: Any?) -> Bool {
+    return (array as? [Any])?.isEmpty ?? true
+}
+
+// 字典是否为空
+func LSIsNullDict(_ dictionary: Any?) -> Bool {
+    return (dictionary as? [AnyHashable: Any])?.isEmpty ?? true
+}
+
+// 是否是空对象
+func LSIsNullObject(_ object: Any?) -> Bool {
+    return (object as? Data)?.isEmpty ?? false || (object as? [Any])?.isEmpty ?? false
+}
+
+// 示例用法
+//let emptyString: String? = nil
+//let nonEmptyString: String? = "Hello, World!"
 //
-//状态栏高度
-let STATUS_BAR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true || Is_iPhone12 == true || Is_iPhone12_mini == true || Is_iPhone12_Pro_Max == true) ? 44.0 : 20.0)
-//状态栏+导航栏高度
-let NAVIGATION_BAR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true || Is_iPhone12 == true || Is_iPhone12_mini == true || Is_iPhone12_Pro_Max == true) ? 88.0 : 64.0)
-//tabBar高度
-let TAB_BAR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true || Is_iPhone12 == true || Is_iPhone12_mini == true || Is_iPhone12_Pro_Max == true) ? 83.0 : 49.0)
-//home indicator高度（底部安全曲区域）
-let HOME_INDICATOR_HEIGHT = ((Is_iPhoneX == true || Is_iPhoneXr == true || Is_iPhoneXs == true || Is_iPhoneXs_Max == true || Is_iPhone12 == true || Is_iPhone12_mini == true || Is_iPhone12_Pro_Max == true) ? 34.0 : 0.0)
+//if LSIsNilString(emptyString) {
+//    print("Empty string is nil or empty")
+//} else {
+//    print("Empty string is not nil or empty")
+//}
+//
+//if LSIsNilString(nonEmptyString) {
+//    print("Non-empty string is nil or empty")
+//} else {
+//    print("Non-empty string is not nil or empty")
+//}
+//
+//let emptyArray: [Any]? = nil
+//let nonEmptyArray: [Any]? = [1, 2, 3]
+//
+//if LSIsNullArray(emptyArray) {
+//    print("Empty array is nil or empty")
+//} else {
+//    print("Empty array is not nil or empty")
+//}
+//
+//if LSIsNullArray(nonEmptyArray) {
+//    print("Non-empty array is nil or empty")
+//} else {
+//    print("Non-empty array is not nil or empty")
+//}
+//
+//let emptyDict: [AnyHashable: Any]? = nil
+//let nonEmptyDict: [AnyHashable: Any]? = ["key": "value"]
+//
+//if LSIsNullDict(emptyDict) {
+//    print("Empty dictionary is nil or empty")
+//} else {
+//    print("Empty dictionary is not nil or empty")
+//}
+//
+//if LSIsNullDict(nonEmptyDict) {
+//    print("Non-empty dictionary is nil or empty")
+//} else {
+//    print("Non-empty dictionary is not nil or empty")
+//}
+//
+//let emptyObject: Any? = nil
+//let nonEmptyObject: Any? = "Some Value"
+//
+//if LSIsNullObject(emptyObject) {
+//    print("Empty object is nil or empty")
+//} else {
+//    print("Empty object is not nil or empty")
+//}
+//
+//if LSIsNullObject(nonEmptyObject) {
+//    print("Non-empty object is nil or empty")
+//} else {
+//    print("Non-empty object is not nil or empty")
+//}
 ///***********************************************************************************************************/

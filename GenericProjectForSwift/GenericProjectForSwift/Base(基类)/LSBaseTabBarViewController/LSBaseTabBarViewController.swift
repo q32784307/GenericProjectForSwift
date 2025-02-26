@@ -2,14 +2,14 @@
 //  LSBaseTabBarViewController.swift
 //  GenericProjectForSwift
 //
-//  Created by 社科赛斯 on 2019/11/30.
+//  Created by 漠然丶情到深处 on 2019/11/30.
 //  Copyright © 2019 漠然丶情到深处. All rights reserved.
 //
 
 import UIKit
 import AudioToolbox
 
-class LSBaseTabBarViewController: UITabBarController,UITabBarControllerDelegate {
+class LSBaseTabBarViewController: UITabBarController, UITabBarControllerDelegate, LSBaseTabBarViewDelegate {
     
     var lsIndex: Int!
     var lastItem: UITabBarItem!
@@ -23,27 +23,27 @@ class LSBaseTabBarViewController: UITabBarController,UITabBarControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let bgView:UIButton = UIButton(frame: CGRect(x: 0,y: 0,width: UIScreen.main.bounds.width,height: 20))
-        bgView.backgroundColor = UIColor.white
+        let bgView:UIButton = UIButton(frame: CGRect(x: 0,y: 0,width: UIScreen.main.bounds.width,height: LSTAB_HOME_HEIGHT()))
+        bgView.backgroundColor = LSWhiteColor
         self.tabBar.insertSubview(bgView, at: 0)
         self.delegate = self
-
         
         setViewControllers()
-//        setCustomtabbar()
+        setCustomtabbar()
         removeTabarTopLine()
     }
     
     //设置自定义中心按钮
     func setCustomtabbar() {
         let tabbar = LSBaseTabBarView.init()
+        tabbar.tabBarDelegate = self
         self.setValue(tabbar, forKey: "tabBar")
     }
-//    - (void)setCustomtabbar {
-//        LSBaseTabBarView *tabbar = [[LSBaseTabBarView alloc]init];
-//        tabbar.BarButtonDelegate = self;
-//        [self setValue:tabbar forKeyPath:@"tabBar"];
-//    }
+    
+    func tabBarMoreButtonAction(_ tabBar: LSBaseTabBarView) {
+        let moreVC = FourViewController.init()
+        self.present(moreVC, animated: true)
+    }
     
     func setViewControllers()  {
         let path:String = Bundle.main.path(forResource: "TabBarConfigure", ofType: "plist")!
@@ -60,22 +60,31 @@ class LSBaseTabBarViewController: UITabBarController,UITabBarControllerDelegate 
     
     func setChildViewController(viewController: String,title: String,image: String,selectedImage: String) -> LSBaseNavigationViewController {
         let cls:AnyClass? = NSClassFromString(Bundle.main.infoDictionary!["CFBundleExecutable"] as! String + "." + viewController)
-        let vcCls = cls as! UIViewController.Type
+        guard let vcCls = cls as? UIViewController.Type else {
+            print("Failed to get view controller class: \(viewController)")
+            fatalError("Failed to get view controller class")
+        }
         let vc = vcCls.init()
         vc.tabBarItem.title = title
         
+        //修改选中文字的颜色
         if #available(iOS 13.0, *) {
-            UITabBar.appearance().tintColor = RedColor
+            UITabBar.appearance().tintColor = LSRedColor
         }
             
         //未选中状态
-        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : BlackColor,NSAttributedString.Key.font: SystemFont(FONTSIZE: 10)], for: .normal)
-        vc.tabBarItem.image = ImageNamed(name: image).withRenderingMode(.alwaysOriginal)
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : LSColorUtil.ls_ligthColor(lightColor: LSColorUtil.ls_colorWithHexString(color: "9B9B9B", alpha: 1), darkColor: LSWhiteColor),NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)], for: .normal)
+        vc.tabBarItem.image = LSImageNamed(name: image).withRenderingMode(.alwaysOriginal)
         //选中状态
-        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : RedColor,NSAttributedString.Key.font: SystemFont(FONTSIZE: 10)], for: .selected)
-        vc.tabBarItem.selectedImage = ImageNamed(name: selectedImage).withRenderingMode(.alwaysOriginal)
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : LSColorUtil.ls_ligthColor(lightColor: LSColorUtil.ls_colorWithHexString(color: "00b7ee"), darkColor: LSColorUtil.ls_colorWithHexString(color: "00b7ee")),NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)], for: .selected)
+        vc.tabBarItem.selectedImage = LSImageNamed(name: selectedImage).withRenderingMode(.alwaysOriginal)
         
-        UITabBar.appearance().backgroundColor = UIColor.white
+        //修改tabbar的背景色
+        if #available(iOS 13.0, *) {
+            UITabBar.appearance().barTintColor = LSWhiteColor
+        }else{
+            UITabBar.appearance().backgroundColor = LSWhiteColor
+        }
         UITabBar.appearance().isTranslucent = false
 
         let nav = LSBaseNavigationViewController(rootViewController: vc)
@@ -87,15 +96,19 @@ class LSBaseTabBarViewController: UITabBarController,UITabBarControllerDelegate 
     
     //改变tabbar线条颜色
     func removeTabarTopLine() {
-        let rect = CGRect(x: 0, y: 0, width: ScreenWidth, height: SYRealValue(value: 2 / 2))
+        let rect = CGRect(x: 0, y: 0, width: LSScreenWidth, height: LSSYRealValue(value: 1))
         UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        context!.setFillColor(RGBAColor(r: 0.99, 085, 0.92, 1).cgColor)
-        context!.addRect(rect)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            print("Failed to get graphics context")
+            return
+        }
+        context.setFillColor(LSWhiteColor.cgColor)
+        context.addRect(rect)
+        context.fillPath()
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         tabBar.shadowImage = img
-        tabBar.backgroundImage = UIImage.init()
+        tabBar.backgroundImage = UIImage()
     }
     
     //点击tabbarItem自动调用
@@ -150,12 +163,8 @@ class LSBaseTabBarViewController: UITabBarController,UITabBarControllerDelegate 
         pulse.fromValue = NSNumber(floatLiteral: 0.7)
         pulse.toValue = NSNumber(floatLiteral: 1.3)
 
-        if #available(iOS 13.0, *) {
-            let tabbarbuttonView = (tabbarbuttonArray[index] as AnyObject).layer
-            tabbarbuttonView?.add(pulse, forKey: nil)
-        } else {
-            // Fallback on earlier versions
-        }
+        let tabbarbuttonView: UIView = tabbarbuttonArray[index] as! UIView
+        tabbarbuttonView.layer.add(pulse, forKey: nil)
     }
 
     //tabbar按钮点击声音

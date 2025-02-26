@@ -2,7 +2,7 @@
 //  LSBaseNavigationView.swift
 //  GenericProjectForSwift
 //
-//  Created by 社科赛斯 on 2019/12/21.
+//  Created by 漠然丶情到深处 on 2019/12/21.
 //  Copyright © 2019 漠然丶情到深处. All rights reserved.
 //
 
@@ -106,22 +106,22 @@ class LSBaseNavigationView: UIView {
     
     override init(frame: CGRect) {
         var selfFrame: CGRect = frame
-        selfFrame.size.height = CGFloat(NAVIGATION_BAR_HEIGHT)
+        selfFrame.size.height = CGFloat(LSNAVIGATION_STATUS_HEIGHT())
         
         leftButtonImage = "back_white"
         leftButtonTitle = "返回"
-        leftButtonTitleColor = WhiteColor
+        leftButtonTitleColor = LSWhiteColor
         isShowLeftButton = false
         
         isShowNavigation = false
-        navColor = RGBAColor(r: 0.22, 0.22, 0.24, 1)
+        navColor = LS_RGBAColor(r: 0.22, 0.22, 0.24, 1)
         navBackgroundViewImage = ""
         titleLabelText = "标题"
-        titleLabelTextColor = WhiteColor
+        titleLabelTextColor = LSWhiteColor
         
         rightButtonImage = ""
         rightButtonTitle = "完成"
-        rightButtonTitleColor = WhiteColor
+        rightButtonTitleColor = LSWhiteColor
         isShowRightButton = true
         
         super.init(frame: selfFrame)
@@ -130,7 +130,7 @@ class LSBaseNavigationView: UIView {
     
     func setNavigationViewAction() {
         //导航栏
-        navView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: CGFloat(NAVIGATION_BAR_HEIGHT)))
+        navView = UIView.init(frame: CGRect(x: 0, y: 0, width: LSScreenWidth, height: CGFloat(LSNAVIGATION_STATUS_HEIGHT())))
         navView.isUserInteractionEnabled = true
         //是否显示
         navView.isHidden = isShowNavigation
@@ -147,7 +147,7 @@ class LSBaseNavigationView: UIView {
         leftButton.imageView?.contentMode = ContentMode.scaleAspectFit
         //文字
         leftButton.setTitle(leftButtonTitle, for: .normal)
-        leftButton.titleLabel?.font = SystemFont(FONTSIZE: SYRealValue(value: 28 / 2))
+        leftButton.titleLabel?.font = LSSystemFont(NAME: "Regular", FONTSIZE: LSSYRealValue(value: 14))
         //颜色
         leftButton.setTitleColor(leftButtonTitleColor, for: .normal)
         leftButton.addTarget(self, action: #selector(leftAction), for: .touchUpInside)
@@ -155,9 +155,9 @@ class LSBaseNavigationView: UIView {
         leftButton.isHidden = isShowLeftButton
         navView.addSubview(leftButton)
         leftButton.snp.makeConstraints { (make) in
-            make.top.equalTo(navView).offset(STATUS_BAR_HEIGHT + 2)
-            make.left.equalTo(navView).offset(SYRealValue(value: 20 / 2))
-            make.height.equalTo(40)
+            make.top.equalTo(navView).offset(LSSTATUS_BAR_HEIGHT() + LSSYRealValue(value: 11))
+            make.left.equalTo(navView).offset(LSSYRealValue(value: 16))
+            make.height.equalTo(LSSYRealValue(value: 20))
         }
         
         //导航栏标题
@@ -167,12 +167,12 @@ class LSBaseNavigationView: UIView {
         //颜色
         titleLabel.textColor = titleLabelTextColor
         titleLabel.textAlignment = NSTextAlignment.center
-        titleLabel.font = BoldSystemFont(FONTSIZE: SYRealValue(value: 32 / 2))
+        titleLabel.font = LSSystemFont(NAME: "Medium", FONTSIZE: LSSYRealValue(value: 16))
         navView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(STATUS_BAR_HEIGHT + 2)
+            make.top.equalTo(LSSTATUS_BAR_HEIGHT())
             make.centerX.equalTo(navView)
-            make.size.equalTo(CGSize(width: SYRealValue(value: 300 / 2), height: 40))
+            make.size.equalTo(CGSize(width: LSSYRealValue(value: 300), height: LSNAVIGATION_BAR_HEIGHT()))
         }
         
         //右按钮
@@ -182,7 +182,7 @@ class LSBaseNavigationView: UIView {
         rightButton.imageView?.contentMode = ContentMode.scaleAspectFit
         //文字
         rightButton.setTitle(rightButtonTitle, for: .normal)
-        rightButton.titleLabel?.font = SystemFont(FONTSIZE: SYRealValue(value: 28 / 2))
+        rightButton.titleLabel?.font = LSSystemFont(NAME: "Regular", FONTSIZE: LSSYRealValue(value: 14))
         //颜色
         rightButton.setTitleColor(rightButtonTitleColor, for: .normal)
         rightButton.addTarget(self, action: #selector(rightAction), for: .touchUpInside)
@@ -190,9 +190,9 @@ class LSBaseNavigationView: UIView {
         rightButton.isHidden = isShowRightButton
         navView.addSubview(rightButton)
         rightButton.snp.makeConstraints { (make) in
-            make.top.equalTo(navView).offset(STATUS_BAR_HEIGHT + 2)
-            make.right.equalTo(navView.snp.right).offset(SYRealValue(value: -20 / 2))
-            make.height.equalTo(40)
+            make.top.equalTo(navView).offset(LSSTATUS_BAR_HEIGHT() + LSSYRealValue(value: 11))
+            make.right.equalTo(navView.snp.right).offset(LSSYRealValue(value: -16))
+            make.height.equalTo(LSSYRealValue(value: 20))
         }
     }
     

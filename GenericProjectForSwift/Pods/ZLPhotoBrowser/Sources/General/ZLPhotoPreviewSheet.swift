@@ -334,8 +334,7 @@ public class ZLPhotoPreviewSheet: UIView {
             PHPhotoLibrary.requestAuthorization { status in
                 ZLMainAsync {
                     if status == .denied {
-                        // 不符合苹果审核，这里注释掉 https://github.com/longitachi/ZLPhotoBrowser/issues/969#issuecomment-2601632232
-//                        self.showNoAuthorityAlert()
+                        self.showNoAuthorityAlert()
                     } else if status == .authorized {
                         if self.preview {
                             self.loadPhotos()

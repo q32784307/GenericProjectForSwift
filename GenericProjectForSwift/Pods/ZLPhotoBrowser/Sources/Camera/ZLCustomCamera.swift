@@ -638,7 +638,6 @@ open class ZLCustomCamera: UIViewController {
 
         if isWideCameraEnabled() {
             if let camera = findFirstDevice(ofTypes: extendedDeviceTypes, in: session) {
-                torchDevice = camera
                 return camera
             }
         }
@@ -834,7 +833,6 @@ open class ZLCustomCamera: UIViewController {
         }
         takedImage = nil
         stopRecordAnimation()
-        cameraConfig.overlayView?.isHidden = false
         if let videoURL = videoURL {
             recordVideoPlayerLayer?.player?.pause()
             recordVideoPlayerLayer?.player = nil
@@ -1195,10 +1193,6 @@ open class ZLCustomCamera: UIViewController {
         } else {
             connection?.videoOrientation = cacheVideoOrientation
         }
-            
-        if let connection = connection, connection.isVideoStabilizationSupported {
-            connection.preferredVideoStabilizationMode = cameraConfig.videoStabilizationMode
-        }
         
         // 解决不同系统版本,因为录制视频编码导致安卓端无法播放的问题
         if #available(iOS 11.0, *),
@@ -1309,7 +1303,6 @@ open class ZLCustomCamera: UIViewController {
     
     private func playRecordVideo(fileURL: URL) {
         recordVideoPlayerLayer?.isHidden = false
-        cameraConfig.overlayView?.isHidden = true
         let player = AVPlayer(url: fileURL)
         player.automaticallyWaitsToMinimizeStalling = false
         recordVideoPlayerLayer?.player = player
@@ -1331,7 +1324,6 @@ extension ZLCustomCamera: AVCapturePhotoCaptureDelegate {
     }
     
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
-        cameraConfig.overlayView?.isHidden = true
         ZLMainAsync {
             defer {
                 self.isTakingPicture = false

@@ -20,29 +20,29 @@ PODS:
   - AttributedString/Privacy (3.4.2)
   - EmptyDataSet-Swift (5.0.0)
   - GKLivePhotoManager (1.0.5)
-  - GKPhotoBrowser (3.2.1):
-    - GKPhotoBrowser/Default (= 3.2.1)
-  - GKPhotoBrowser/AF (3.2.1):
+  - GKPhotoBrowser (3.2.0):
+    - GKPhotoBrowser/Default (= 3.2.0)
+  - GKPhotoBrowser/AF (3.2.0):
     - AFNetworking
     - GKLivePhotoManager
     - GKPhotoBrowser/Core
-  - GKPhotoBrowser/AVPlayer (3.2.1):
+  - GKPhotoBrowser/AVPlayer (3.2.0):
     - GKPhotoBrowser/Core
-  - GKPhotoBrowser/Core (3.2.1):
+  - GKPhotoBrowser/Core (3.2.0):
     - GKPhotoBrowser/Resources
-  - GKPhotoBrowser/Cover (3.2.1):
+  - GKPhotoBrowser/Cover (3.2.0):
     - GKPhotoBrowser/Core
-  - GKPhotoBrowser/Default (3.2.1):
+  - GKPhotoBrowser/Default (3.2.0):
     - GKPhotoBrowser/AF
     - GKPhotoBrowser/AVPlayer
     - GKPhotoBrowser/Cover
     - GKPhotoBrowser/Progress
     - GKPhotoBrowser/SD
-  - GKPhotoBrowser/Progress (3.2.1):
+  - GKPhotoBrowser/Progress (3.2.0):
     - GKPhotoBrowser/Core
     - GKSliderView
-  - GKPhotoBrowser/Resources (3.2.1)
-  - GKPhotoBrowser/SD (3.2.1):
+  - GKPhotoBrowser/Resources (3.2.0)
+  - GKPhotoBrowser/SD (3.2.0):
     - GKPhotoBrowser/Core
     - SDWebImage (~> 5.0)
   - GKSliderView (1.2.3)
@@ -57,9 +57,9 @@ PODS:
   - ReactiveSwift (7.2.0)
   - SDCycleScrollView (1.82):
     - SDWebImage (>= 5.0.0)
-  - SDWebImage (5.21.0):
-    - SDWebImage/Core (= 5.21.0)
-  - SDWebImage/Core (5.21.0)
+  - SDWebImage (5.20.0):
+    - SDWebImage/Core (= 5.20.0)
+  - SDWebImage/Core (5.20.0)
   - SnapKit (5.7.1)
   - SVProgressHUD (2.3.1):
     - SVProgressHUD/Core (= 2.3.1)
@@ -97,9 +97,9 @@ PODS:
   - WMZBanner (1.2.0):
     - SDWebImage
   - WMZPageController (1.5.5)
-  - ZLPhotoBrowser (4.5.8):
-    - ZLPhotoBrowser/Core (= 4.5.8)
-  - ZLPhotoBrowser/Core (4.5.8)
+  - ZLPhotoBrowser (4.5.7):
+    - ZLPhotoBrowser/Core (= 4.5.7)
+  - ZLPhotoBrowser/Core (4.5.7)
 
 DEPENDENCIES:
   - Alamofire
@@ -165,7 +165,7 @@ SPEC CHECKSUMS:
   AttributedString: 48343fcecea107c89319e09436b6d19e90e69981
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   GKLivePhotoManager: 7d5bc069382d5a4c1d44a846727b0beb08582256
-  GKPhotoBrowser: 3e7a6e0608734136f2fa04e8b4025e7438a121b8
+  GKPhotoBrowser: cf02096cc7e95ed0220cb95d5723b79b38ce552f
   GKSliderView: 7c6f853afeb0ae370bb8dce76ec669d6e9109d1d
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   IDealist: 5a5c7b38e644c2634a524185be5f3fbc25dd0ea5
@@ -176,7 +176,7 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 32793e867593cfc1177f5d16491e3a197d2fccda
   ReactiveSwift: d33487e3cc4887c2ba5a710abd45bfa7595db5ea
   SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
-  SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
+  SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
@@ -187,8 +187,8 @@ SPEC CHECKSUMS:
   UMShare: c209e51f2a87dba6df34040b5c06b0a1b8599afb
   WMZBanner: 42d02896dc7a67a4d7a2ebe1ef5b7a79f8d2c540
   WMZPageController: 87dd82d1e3528cd362de19b9a74fd6890d6e1906
-  ZLPhotoBrowser: 52c8b386e3f9a7885676027c529a015147df502c
+  ZLPhotoBrowser: 04c8a5c5299a3b5945c60bd0e676c16d1215b14c
 
-PODFILE CHECKSUM: 21ab3918ad127c9079dbab9cc24b3ffc7f436a0a
+PODFILE CHECKSUM: 4bd41b8f8199c81402b7ec31172368c42050b302
 
 COCOAPODS: 1.16.2

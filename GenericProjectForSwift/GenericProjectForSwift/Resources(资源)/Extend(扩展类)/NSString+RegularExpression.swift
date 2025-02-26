@@ -2,7 +2,7 @@
 //  NSString+RegularExpression.swift
 //  GenericProjectForSwift
 //
-//  Created by 社科赛斯 on 2019/12/27.
+//  Created by 漠然丶情到深处 on 2019/12/27.
 //  Copyright © 2019 漠然丶情到深处. All rights reserved.
 //
 

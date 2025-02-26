@@ -2,80 +2,61 @@
 //  OneViewController.swift
 //  GenericProjectForSwift
 //
-//  Created by 社科赛斯 on 2019/12/21.
+//  Created by 漠然丶情到深处 on 2019/12/21.
 //  Copyright © 2019 漠然丶情到深处. All rights reserved.
 //
 
 import UIKit
-import Alamofire
 
-class OneViewController: LSBaseViewController,UITableViewDelegate,UITableViewDataSource {
+class OneViewController: LSBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setNavigation()
+        requestUrl = "/api/auction/get_car_list"
+        
+        modelType = OneModel.self
         analysis()
-        createSubViews()
-    }
-    
-    func setNavigation() {
-        navView.navColor = RedColor
-        navView.titleLabelText = "首页"
-        navView.isShowLeftButton = true
-    }
-    
-    override func analysis() {
-
-    }
-    
-    override func createSubViews() {
-        isOpenUpDate = true
-        mainTableView.delegate = self
-        mainTableView.dataSource = self
-        mainTableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
-        self.view.addSubview(mainTableView)
         
-        
+        mainTableView.reloadData()
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        listArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")
-        if cell != nil {
-            cell = UITableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "TableViewCell")
-            cell?.textLabel?.font = SystemFont(FONTSIZE: SYRealValue(value: 30 / 2))
-            cell?.selectionStyle = UITableViewCell.SelectionStyle.none
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "LSBaseTableViewCell") as? LSBaseTableViewCell
+        if cell == nil {
+            cell = LSBaseTableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "LSBaseTableViewCell")
         }
+        cell!.selectionStyle = UITableViewCell.SelectionStyle.none
         
-        if indexPath.row == 0 {
-            cell?.textLabel?.text = "闲杂"
+        if let oneModel = listArray[indexPath.row] as? OneModel {
+            LSNSLog("Car name: \(oneModel.car_name)")
+            cell!.textLabel?.text = oneModel.car_name
         }
         
         return cell!
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let PushVC = PushViewController()
-        self.navigationController?.pushViewController(PushVC, animated: true)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return LSSYRealValue(value: 50)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SYRealValue(value: 100 / 2)
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFLOAT_MIN
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 25
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFLOAT_MIN
     }
-
+     
     /*
     // MARK: - Navigation
 

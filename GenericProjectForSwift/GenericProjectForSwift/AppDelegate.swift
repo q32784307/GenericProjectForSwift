@@ -2,14 +2,13 @@
 //  AppDelegate.swift
 //  GenericProjectForSwift
 //
-//  Created by 社科赛斯 on 2019/11/30.
-//  Copyright © 2019 漠然丶情到深处. All rights reserved.
+//  Created by 皮蛋菌 on 2024/5/28.
 //
 
 import UIKit
 import IQKeyboardManagerSwift
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -72,7 +71,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

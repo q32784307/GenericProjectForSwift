@@ -279,8 +279,8 @@ func zl_debugPrint(_ message: Any...) {
 //    message.forEach { debugPrint($0) }
 }
 
-func zlLoggerInDebug(_ lastMessage: @autoclosure () -> String, file: StaticString = #file, line: UInt = #line, funcName: String = #function) {
+func zlLoggerInDebug(_ lastMessage: @autoclosure () -> String, file: StaticString = #file, line: UInt = #line) {
     #if DEBUG
-        print("file: \(file), line: \(line), func: \(funcName), message: \(lastMessage())")
+        print("\(file):\(line): \(lastMessage())")
     #endif
 }

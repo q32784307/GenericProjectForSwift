@@ -278,9 +278,7 @@ open class ZLEditImageViewController: UIViewController {
     // 上方渐变阴影层
     @objc public lazy var topShadowView: ZLPassThroughView = {
         let shadowView = ZLPassThroughView()
-        shadowView.findResponderSticker = { [weak self] point -> UIView? in
-            self?.findResponderSticker(point)
-        }
+        shadowView.findResponderSticker = findResponderSticker(_:)
         return shadowView
     }()
     
@@ -294,9 +292,7 @@ open class ZLEditImageViewController: UIViewController {
     // 下方渐变阴影层
     @objc public lazy var bottomShadowView: ZLPassThroughView = {
         let shadowView = ZLPassThroughView()
-        shadowView.findResponderSticker = { [weak self] point -> UIView? in
-            self?.findResponderSticker(point)
-        }
+        shadowView.findResponderSticker = findResponderSticker(_:)
         return shadowView
     }()
     
@@ -560,7 +556,7 @@ open class ZLEditImageViewController: UIViewController {
         zl_debugPrint("edit image layout subviews")
         var insets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         if #available(iOS 11.0, *) {
-            insets = view.safeAreaInsets
+            insets = self.view.safeAreaInsets
         }
         insets.top = max(20, insets.top)
         
@@ -1336,10 +1332,7 @@ open class ZLEditImageViewController: UIViewController {
                 transform = transform.translatedBy(x: -drawingImageViewSize.height, y: 0)
             }
             transform = transform.concatenating(drawingImageView.transform)
-            let transformedPoint = point.applying(transform)
-            // 将变换后的点转换到 containerView 的坐标系
-            let pointInContainerView = drawingImageView.convert(transformedPoint, to: containerView)
-            eraserCircleView.center = pointInContainerView
+            eraserCircleView.center = point.applying(transform)
             
             var needDraw = false
             for path in drawPaths {

@@ -2,68 +2,76 @@
 //  LSBaseViewController.swift
 //  GenericProjectForSwift
 //
-//  Created by 社科赛斯 on 2019/12/21.
+//  Created by 漠然丶情到深处 on 2019/12/21.
 //  Copyright © 2019 漠然丶情到深处. All rights reserved.
 //
 
 import UIKit
-import MJRefresh
 
 class LSBaseViewController: UIViewController {
-    var navView: LSBaseNavigationView!
+    
     //是否隐藏系统导航栏
-    var isHidenNaviBar: Bool! {
+    var isHidenNaviBar: Bool = false {
         didSet {
-            self.navigationController?.setNavigationBarHidden(isHidenNaviBar, animated: false)
+            self.navigationController?.setNavigationBarHidden(isHidenNaviBar, animated: true)
         }
     }
-    //是否开启刷新功能
-    var isOpenUpDate: Bool! {
-        didSet {
-            if isOpenUpDate == true {
-                setupRefresh()
-            }
-        }
-    }
-    
-    
-    lazy var mainTableView: UITableView! = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: CGFloat(NAVIGATION_BAR_HEIGHT), width: ScreenWidth, height: ScreenHeight - CGFloat(NAVIGATION_BAR_HEIGHT) - CGFloat(TAB_BAR_HEIGHT)), style: .grouped)
-        tableView.estimatedRowHeight = 0
-        tableView.estimatedSectionHeaderHeight = 0
-        tableView.estimatedSectionFooterHeight = 0
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        return tableView
-    }()
-    
+//        isHidenNaviBar = true
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIApplication.shared.keyWindow?.endEditing(true)
+        
+//        isHidenNaviBar = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = ViewBackgroundColor
+        self.view.backgroundColor = LSViewBackgroundColor
         // Do any additional setup after loading the view.
-        //是否隐藏系统导航栏
-        isHidenNaviBar = true
     
         setNavigationView()
     }
     
     //创建自定义导航栏
     func setNavigationView() {
-        navView = LSBaseNavigationView.init()
-        navView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: CGFloat(NAVIGATION_BAR_HEIGHT))
-        navView.leftActionBlock = {() -> Void in
-            self.backBtnClicked()
+        //系统导航
+        if #available(iOS 13.0, *) {
+            let barApp = UINavigationBarAppearance()
+            barApp.backgroundColor = LSWhiteColor
+            barApp.backgroundEffect = nil
+            barApp.shadowColor = LSWhiteColor
+            self.navigationController?.navigationBar.scrollEdgeAppearance = barApp
+            self.navigationController?.navigationBar.standardAppearance = barApp
         }
-        self.view.addSubview(navView)
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layer.shadowColor = LSColorUtil.ls_colorWithHexString(color: "000000", alpha: 0.05).cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSizeMake(0, 4)
+        self.navigationController?.navigationBar.layer.shadowOpacity = 1
+        self.navigationController?.navigationBar.layer.shadowRadius = 20
+        self.navigationController?.navigationBar.layer.shadowPath = UIBezierPath(rect: (self.navigationController?.navigationBar.bounds)!).cgPath
+        
+        if self != self.navigationController?.viewControllers.first {
+            let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: LSSYRealValue(value: 24), height: LSSYRealValue(value: 24)))
+            leftButton.setImage(LSImageNamed(name: "back_black"), for: UIControl.State.normal)
+            leftButton.adjustsImageWhenHighlighted = false
+            leftButton.addTarget(self, action: #selector(backPopAction), for: UIControl.Event.touchUpInside)
+            
+            let leftView = UIView(frame: leftButton.frame)
+            leftView.addSubview(leftButton)
+            
+            let leftBarButton = UIBarButtonItem(customView: leftView)
+            self.navigationItem.leftBarButtonItem = leftBarButton
+        }
     }
     
-    func backBtnClicked() {
+    @objc func backPopAction() {
         if self.presentingViewController != nil {
             self.dismiss(animated: true, completion: nil)
         }else{
@@ -71,15 +79,15 @@ class LSBaseViewController: UIViewController {
         }
     }
     
-    //请求数据
-    func analysis() {
-        
-    }
-
-    //创建布局
-    func createSubViews() {
-        
-    }
+//    //请求数据
+//    func analysis() {
+//        
+//    }
+//
+//    //创建布局
+//    func createSubViews() {
+//        
+//    }
     
     /** 该方法在UIView的分类中实现 */
     func isShowingOnKeyWindow() -> Bool {
@@ -93,50 +101,6 @@ class LSBaseViewController: UIViewController {
         let intersects: Bool = newFrame.intersects(winBounds)
         return !self.view.isHidden && self.view.alpha > 0.01 && self.view.window == keyWindow && intersects
     }
-    
-    func setupRefresh() {
-        //下拉刷新
-        let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(headerRereshing))
-        //隐藏时间
-        header.lastUpdatedTimeLabel?.isHidden = true
-        //隐藏状态
-        header.stateLabel?.isHidden = true
-        // 设置文字
-        header.setTitle("下拉刷新数据", for: MJRefreshState.idle)
-        header.setTitle("松开立即刷新", for: MJRefreshState.pulling)
-        header.setTitle("Loading ...", for: MJRefreshState.refreshing)
-        // 设置字体
-        header.stateLabel?.font = SystemFont(FONTSIZE: 15)
-        header.lastUpdatedTimeLabel?.font = SystemFont(FONTSIZE: 14)
-        // 设置颜色
-        header.stateLabel?.textColor = RedColor
-        header.lastUpdatedTimeLabel?.textColor = BlueColor
-        // 设置刷新控件
-        mainTableView.mj_header = header
-        
-        //上拉加载
-        let footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(footerRereshing))
-        // 设置文字
-        footer.setTitle("上拉可加载更多数据", for: MJRefreshState.idle)
-        footer.setTitle("Loading more ...", for: MJRefreshState.refreshing)
-        // 设置字体
-        footer.stateLabel?.font = SystemFont(FONTSIZE: 17)
-        // 设置颜色
-        footer.stateLabel?.textColor = BlueColor
-        // 设置footer
-        mainTableView.mj_footer = footer
-    }
-    
-    //Mark: 设置下拉刷新
-    @objc func headerRereshing() {
-        
-    }
-    
-    //Mark: 设置上拉加载
-    @objc func footerRereshing() {
-        
-    }
-
 
     /*
     // MARK: - Navigation

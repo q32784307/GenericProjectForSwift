@@ -30,7 +30,7 @@ target 'GenericProjectForSwift' do
   pod 'Kingfisher'
   pod 'ZLPhotoBrowser'
   pod 'TZImagePickerController'
-  pod 'WMZPageController'
+  pod 'WMZPageController'  
   pod 'WMZBanner'
   pod 'SDCycleScrollView'
   pod 'GKPhotoBrowser'
