@@ -1,6 +1,0 @@
-framework module IDealist {
-  umbrella header "IDealist-umbrella.h"
-
-  export *
-  module * { export * }
-}
