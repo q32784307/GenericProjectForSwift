@@ -16,8 +16,8 @@ target 'GenericProjectForSwift' do
   pod 'SVProgressHUD'
   pod 'IDealist'
   pod 'AttributedString'
-  pod 'ReactiveSwift'
-  pod 'HandyJSON'
-  pod 'Kingfisher'
+ # pod 'ReactiveSwift'
+#  pod 'HandyJSON'
+#  pod 'Kingfisher'
  # pod 'ZLPhotoBrowser'
 end
